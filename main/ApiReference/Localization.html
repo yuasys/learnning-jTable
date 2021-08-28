@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - API Reference</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                <h2>jTable API Reference - Localization</h2>
+
+<p>jTable can be easily localized either using ready localization files or writing your custom localized messages.</p>
+
+<h3>With localization files</h3>
+
+<p>You can easily localize jTables on your site by adding a localization script in the localization folder of the library, just after the jtable script file:</p>
+
+<pre class="brush:js">&lt;script type=&quot;text/javascript&quot; src=&quot;/Scripts/jtable/jquery.jtable.js&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/Scripts/jtable/localization/jquery.jtable.tr.js&quot;&gt;</pre>
+
+<p>Turkish (tr) localization is shown above. There are translation of jTable messages in variant languages. You can also write your own localization script files. If you do it, you can share localization file with jTable community on <a href="https://github.com/hikalkan/jtable">github</a>.</p>
+
+<h3>With custom localized messages</h3>
+
+<p>You can use the <strong>messages</strong> option to localize a jTable instance on initialization. <strong>Default</strong> value of the messages option is shown below:</p>
+<pre class="brush:js">messages: {
+    serverCommunicationError: &#39;An error occured while communicating to the server.&#39;,
+    loadingMessage: &#39;Loading records...&#39;,
+    noDataAvailable: &#39;No data available!&#39;,
+    addNewRecord: &#39;Add new record&#39;,
+    editRecord: &#39;Edit Record&#39;,
+    areYouSure: &#39;Are you sure?&#39;,
+    deleteConfirmation: &#39;This record will be deleted. Are you sure?&#39;,
+    save: &#39;Save&#39;,
+    saving: &#39;Saving&#39;,
+    cancel: &#39;Cancel&#39;,
+    deleteText: &#39;Delete&#39;,
+    deleting: &#39;Deleting&#39;,
+    error: &#39;Error&#39;,
+    close: &#39;Close&#39;,
+    cannotLoadOptionsFor: &#39;Can not load options for field {0}&#39;,
+    pagingInfo: &#39;Showing {0}-{1} of {2}&#39;,
+    pageSizeChangeLabel: &#39;Row count&#39;,
+    gotoPageLabel: &#39;Go to page&#39;,
+    canNotDeletedRecords: &#39;Can not deleted {0} of {1} records!&#39;,
+    deleteProggress: &#39;Deleted {0} of {1} records, processing...&#39;
+}</pre>
+
+<p>Here, a sample localization for Turkish language:</p>
+
+<pre class="brush:js">//Localization
+var turkishMessages = {
+    serverCommunicationError: &#39;Sunucu ile iletişim kurulurken bir hata oluştu.&#39;,
+    loadingMessage: &#39;Kayıtlar y&#252;kleniyor...&#39;,
+    noDataAvailable: &#39;Hi&#231; kayıt bulunmamaktadır!&#39;,
+    addNewRecord: &#39;Yeni kayıt ekle&#39;,
+    editRecord: &#39;Kayıt d&#252;zenle&#39;,
+    areYouSure: &#39;Emin misiniz?&#39;,
+    deleteConfirmation: &#39;Bu kayıt silinecektir. Emin misiniz?&#39;,
+    save: &#39;Kaydet&#39;,
+    saving: &#39;Kaydediyor&#39;,
+    cancel: &#39;İptal&#39;,
+    deleteText: &#39;Sil&#39;,
+    deleting: &#39;Siliyor&#39;,
+    error: &#39;Hata&#39;,
+    close: &#39;Kapat&#39;,
+    cannotLoadOptionsFor: &#39;{0} alanı i&#231;in se&#231;enekler y&#252;klenemedi!&#39;,
+    pagingInfo: &#39;Görterilen: {0}-{1}, Toplam: {2}&#39;,
+    pageSizeChangeLabel: &#39;Satır sayısı&#39;,
+    gotoPageLabel: &#39;Sayfaya git&#39;,
+    canNotDeletedRecords: &#39;{1} kayıttan {0} adedi silinemedi!&#39;,
+    deleteProggress: &#39;{1} kayıttan {0} adedi silindi, devam ediliyor...&#39;
+};</pre>
+
+<p>To set localized messages for a jTable instance (in jTable initialization):</p>
+
+<pre class="brush:js">//Prepare jtable plugin
+$(&#39;#PersonTable&#39;).jtable({            
+    messages: turkishMessages,
+});</pre>
+
+<p>To set localized messages for all jTable instances of your web site:</p>
+
+<pre class="brush:js">$.extend(true, $.hik.jtable.prototype.options.messages, turkishMessages); 
+</pre>
+
+<p>See <a href="GeneralOptions.html">How to set general options</a> to get detailed information about setting general options for jTable.</p>
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

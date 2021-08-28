@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - Getting Started</title>
+
+    <link href="Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+    <style>
+    pre
+    {
+        font-size: 8px;
+    }
+    </style>
+
+
+    <script src="Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="Demo.html">Demos</a> | <a href="Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="Themes.html">Themes</a> | <a href="Home/Downloads.html">Downloads</a> | <a href="Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                
+
+<h2>Getting Started</h2>
+<ul>
+  <li><a href="GettingStarted.html#Introduction">Introduction</a></li>
+  <li><a href="GettingStarted.html#Dependencies">Dependencies</a></li>
+  <li><a href="GettingStarted.html#Downloading">Downloading jTable</a></li>
+  <li><a href="GettingStarted.html#Header">Creating header</a></li>
+  <li><a href="GettingStarted.html#Container">Creating a container</a></li>
+  <li><a href="GettingStarted.html#CreatejTable">Creating a jTable instance</a></li>
+  <li><a href="GettingStarted.html#ListAction">Creating the list action</a></li>
+  <li><a href="GettingStarted.html#CreateAction">Creating a new record</a></li>
+  <li><a href="GettingStarted.html#UpdateAction">Editing/Updating a record</a></li>
+  <li><a href="GettingStarted.html#DeleteAction">Deleting a record</a></li>
+  <li><a href="GettingStarted.html#Result">The result</a></li>
+</ul>
+<h3 id="Introduction">Introduction</h3>
+<p>Here, I will examine a simple table implementation with <strong>jTable</strong>. Assume that you have a database table as shown below (For more complex tables, see samples in the <a href="Demo.html" target="_blank">demo list</a>).</p>
+<p><img src="Content/images/GettingStarted/personDbTable.png" width="353" height="150" alt="Person DB Table" /></p>
+<p>Surely, you don't have to work with SQL Server, or even with a DBMS. jTable does not care about any server-side technology.</p>
+<h3 id="Dependencies">Dependencies</h3>
+<p><strong>jTable</strong> is depended on <strong>jQuery </strong>and <strong>jQueryUI</strong>. So, If you haven't yet, you must first download latest versions of these libraries from <a href="http://www.jquery.com">jquery.com</a>.</p>
+
+<h3 id="Downloading">Downloading jTable</h3>
+<p>You can download jTable from <a href="Home/Downloads.html">Downloads</a> section. Also, you can get it from <a href="https://nuget.org/packages/jTable/">nuget</a> if you are using Visual Studio.</p>
+<p>After downloading, you will have a folder structure like that:</p>
+<img src="Content/images/GettingStarted/jtable-folders.png" width="141" height="133" alt="jTable folders" />
+
+<h3 id="Header">Creating Header</h3>
+
+<p>Add these lines to the <strong>HEAD</strong> section of your HTML document:</p>
+<pre class="brush:html">&lt;!-- Include one of jTable styles. --&gt;
+&lt;link href=&quot;/jtable/themes/metro/blue/jtable.min.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;!-- Include jTable script file. --&gt;
+&lt;script src=&quot;/jtable/jquery.jtable.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</pre>
+
+<p>You can select any theme and color schema in themes folder.</p>
+
+<p>NOTE: You must also add needed <strong>jQuery </strong>and <strong>jQueryUI </strong>JavaScript and CSS files before importing jTable files.</p>
+
+<h3 id="Container">Creating a container</h3>
+<p>jTable needs only a container element for your table.</p>
+
+<pre class="brush:html">&lt;div id=&quot;PersonTableContainer&quot;&gt;&lt;/div&gt;</pre>
+<p>Container element can be a simple <strong>div </strong>element as shown above.</p>
+<h3 id="CreatejTable">Creating a jTable instance</h3>
+<p>Add these JavaScript codes to your page:</p>
+<pre class="brush:js">&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function () {
+        $(&#39;#PersonTableContainer&#39;).jtable({
+            title: &#39;Table of people&#39;,
+            actions: {
+                listAction: &#39;/GettingStarted/PersonList&#39;,
+                createAction: &#39;/GettingStarted/CreatePerson&#39;,
+                updateAction: &#39;/GettingStarted/UpdatePerson&#39;,
+                deleteAction: &#39;/GettingStarted/DeletePerson&#39;
+            },
+            fields: {
+                PersonId: {
+                    key: true,
+                    list: false
+                },
+                Name: {
+                    title: &#39;Author Name&#39;,
+                    width: &#39;40%&#39;
+                },
+                Age: {
+                    title: &#39;Age&#39;,
+                    width: &#39;20%&#39;
+                },
+                RecordDate: {
+                    title: &#39;Record date&#39;,
+                    width: &#39;30%&#39;,
+                    type: &#39;date&#39;,
+                    create: false,
+                    edit: false
+                }
+            }
+        });
+    });
+&lt;/script&gt;</pre>
+<p>All HTML and JavaScript codes ready! We set <strong>title </strong>of the table, <strong>action URL</strong>s to perform AJAX operations on server and <strong>structure </strong>of our <strong>Person record fields</strong>. If you run the page now, you will see the table without data:</p>
+<div class="centered"><img src="Content/images/GettingStarted/person-jtable-empty.png" width="636" height="113" alt="Empty jTable example" /></div>
+<p>If you click '+ Add new record' lick, a dialog is automatically created:</p>
+<div class="centered"><img src="Content/images/GettingStarted/jtable-add-record-form.jpg" width="207" height="243" alt="jTable add record form dialog" /></div>
+<p>We must create <strong>server side </strong>codes to be able to run the page.</p>
+
+<h3 id="ListAction">Creating the list action</h3>
+<p><a href="ApiReference.html#act-listAction"><strong>listAction</strong></a> option of jTable is used to get data to create table of records. It's a regular URL as '/GettingStarted/PersonList'. If you are working with PHP, It maybe '/GettingStarted/PersonList.php' ...etc. jTable performs an ajax POST request to this URL to get records when you call the <a href="ApiReference.html#met-load"><strong>load</strong></a> method.</p>
+<pre class="brush:js">$(&#39;#PersonTableContainer&#39;).jtable(&#39;load&#39;);</pre>
+<p><strong>load</strong> method can be called after table initialized.</p>
+<p>All server actions those are used by jTable must return a <strong>JSON object</strong>. This is a sample return value for this example:</p>
+<pre class="brush: xml">{
+ &quot;Result&quot;:&quot;OK&quot;,
+ &quot;Records&quot;:[
+  {&quot;PersonId&quot;:1,&quot;Name&quot;:&quot;Benjamin Button&quot;,&quot;Age&quot;:17,&quot;RecordDate&quot;:&quot;\/Date(1320259705710)\/&quot;},
+  {&quot;PersonId&quot;:2,&quot;Name&quot;:&quot;Douglas Adams&quot;,&quot;Age&quot;:42,&quot;RecordDate&quot;:&quot;\/Date(1320259705710)\/&quot;},
+  {&quot;PersonId&quot;:3,&quot;Name&quot;:&quot;Isaac Asimov&quot;,&quot;Age&quot;:26,&quot;RecordDate&quot;:&quot;\/Date(1320259705710)\/&quot;},
+  {&quot;PersonId&quot;:4,&quot;Name&quot;:&quot;Thomas More&quot;,&quot;Age&quot;:65,&quot;RecordDate&quot;:&quot;\/Date(1320259705710)\/&quot;}
+ ]
+}</pre>
+<p><strong>Don't worry about creating a JSON object. All common server side technologies have ability to create these objects easily (see samples below)</strong>.</p>
+<p><strong>Result </strong>property can be &quot;<strong>OK</strong>&quot; or &quot;<strong>ERROR</strong>&quot;. If it is &quot;OK&quot;, <strong>Records</strong> property must be an array of records. If it is &quot;ERROR&quot;, a <strong>Message</strong> property can explain reason of the error to show to the user.
+You can take a look at the <a href="ApiReference.html#act-listAction">API reference document</a> to see supported date formats.</p>
+<p>Here, there are sample server-side codes for <strong>listAction</strong> in some common server-side technologies:</p>
+
+<div class="tabsContainer">
+    <ul>
+        <li><a href="GettingStarted.html#tabs-mvc-list">ASP.NET MVC</a></li>
+        <li><a href="GettingStarted.html#tabs-webforms-list">ASP.NET Web Forms</a></li>
+        <li><a href="GettingStarted.html#tabs-php-list">PHP</a></li>
+    </ul>
+    <div id="tabs-mvc-list">
+        <pre class="brush:csharp;">[HttpPost]
+public JsonResult PersonList()
+{
+    try
+    {
+        List&lt;Person&gt; persons = _repository.PersonRepository.GetAllPeople();
+        return Json(new { Result = &quot;OK&quot;, Records = persons });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+	<div id="tabs-webforms-list">
+		<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object PersonList()
+{
+	try
+	{
+		List&lt;Person&gt; persons = _repository.PersonRepository.GetAllPeople();
+		return new { Result = &quot;OK&quot;, Records = persons };
+	}
+	catch (Exception ex)
+	{
+		return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+	}
+}</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+	<div id="tabs-php-list">
+		<pre class="brush:php">//Get records from database
+$result = mysql_query(&quot;SELECT * FROM people;&quot;);
+
+//Add all records to an array
+$rows = array();
+while($row = mysql_fetch_array($result))
+{
+	$rows[] = $row;
+}
+
+//Return result to jTable
+$jTableResult = array();
+$jTableResult[&#39;Result&#39;] = &quot;OK&quot;;
+$jTableResult[&#39;Records&#39;] = $rows;
+print json_encode($jTableResult);</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+</div>
+
+<p>So, now we can run the page and see the result:</p>
+<div class="centered"><img src="Content/images/GettingStarted/jtable-example-with-data.png" width="636" height="227" alt="Person jTable with data" /></div>
+
+<h3 id="CreateAction">Creating a new record</h3>
+<p>When we click the '<strong>+ Add new record</strong>' link below the table, a <strong>create record form</strong> is <strong>automatically</strong> generated by jTable:</p>
+<div class="centered"><img src="Content/images/GettingStarted/jtable-add-record-form-with-data.png" width="206" height="242" alt="jTable add record form dialog with data" /></div>
+<p>When try to add a person, we get an error since we haven't implement <strong>createAction</strong> yet! <strong>createAction </strong>option of jTable is used to submit (<strong>POST</strong>) a 'create record form' to the server. When you press Save button, a POST data is sent to server as shown below:</p>
+<pre class="brush:html;">Name=Dan+Brown&amp;Age=55</pre>
+<p>In the server side, you can save new person to the database. createAction <strong>must return </strong>newly created record (as JSON object)! A <strong>sample</strong> return value for createAction can be:</p>
+<pre class="brush:html;">{
+ &quot;Result&quot;:&quot;OK&quot;,
+ &quot;Record&quot;:{&quot;PersonId&quot;:5,&quot;Name&quot;:&quot;Dan Brown&quot;,&quot;Age&quot;:55,&quot;RecordDate&quot;:&quot;\/Date(1320262185197)\/&quot;}
+}</pre>
+<p>Same as all jTable actions, returning object must contain a <strong>Result </strong>property that's value can be &quot;<strong>OK</strong>&quot; or &quot;<strong>ERROR</strong>&quot;. If it's &quot;OK&quot;, <strong>Record </strong>property is the created record.</p>
+<p>Here, there are sample server-side codes for <strong>createAction</strong> in some common server-side technologies:</p>
+
+<div class="tabsContainer">
+    <ul>
+        <li><a href="GettingStarted.html#tabs-mvc-create">ASP.NET MVC</a></li>
+        <li><a href="GettingStarted.html#tabs-webforms-create">ASP.NET Web Forms</a></li>
+        <li><a href="GettingStarted.html#tabs-php-create">PHP</a></li>
+    </ul>
+    <div id="tabs-mvc-create">
+        <pre class="brush:csharp;">[HttpPost]
+public JsonResult CreatePerson(Person person)
+{
+    try
+    {
+        Person addedPerson = _repository.PersonRepository.AddPerson(person);
+        return Json(new { Result = &quot;OK&quot;, Record = addedPerson });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+	<div id="tabs-webforms-create">
+		<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object CreatePerson(Person record)
+{
+	try
+	{
+		Person addedPerson = _repository.PersonRepository.AddPerson(record);
+		return new { Result = &quot;OK&quot;, Record = addedPerson };
+	}
+	catch (Exception ex)
+	{
+		return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+	}
+}</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+	<div id="tabs-php-create">
+		<pre class="brush:php">//Insert record into database
+$result = mysql_query("INSERT INTO people(Name, Age, RecordDate) VALUES('" . $_POST["Name"] . "', " . $_POST["Age"] . ",now());");
+
+//Get last inserted record (to return to jTable)
+$result = mysql_query("SELECT * FROM people WHERE PersonId = LAST_INSERT_ID();");
+$row = mysql_fetch_array($result);
+
+//Return result to jTable
+$jTableResult = array();
+$jTableResult['Result'] = "OK";
+$jTableResult['Record'] = $row;
+print json_encode($jTableResult);</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+</div>
+
+<p>When server successfully saves the new record, same record is automatically added to the jTable with an animation.</p>
+
+<h3 id="UpdateAction">Editing/Updating a record</h3>
+<p>When we click <strong>edit icon</strong> for a record, a <strong>edit record form</strong> is <strong>automatically</strong> generated by jTable:</p>
+<div class="centered"><img src="Content/images/GettingStarted/jtable-edit-form-dialog.png" width="206" height="242" alt="jTable edit record form dialog" /></div>
+<p>When we change age of Dougles Adams and <strong>save </strong>the form, a <strong>POST </strong>operation made  to <strong>updateAction </strong>URL with fallowing values:</p>
+<pre class="brush:html;">PersonId=2&amp;Name=Douglas+Adams&amp;Age=43</pre>
+<p>In the server side, you can <strong>update fields</strong> in the database table for PersonId=2. updateAction must return a JSON object like that:</p>
+<pre class="brush:html;">{&quot;Result&quot;:&quot;OK&quot;}</pre>
+<p>If <strong>Result </strong>is &quot;ERROR&quot;, a <strong>Message</strong> property can explain the error reason. If Result is &quot;OK&quot;, jTable updates cells on the table in the page with an animation.</p>
+<p>Here, there are sample server-side codec for <strong>updateAction</strong> in some common server-side technologies:</p>
+
+<div class="tabsContainer">
+    <ul>
+        <li><a href="GettingStarted.html#tabs-mvc-update">ASP.NET MVC</a></li>
+        <li><a href="GettingStarted.html#tabs-webforms-update">ASP.NET Web Forms</a></li>
+        <li><a href="GettingStarted.html#tabs-php-update">PHP</a></li>
+    </ul>
+    <div id="tabs-mvc-update">
+        <pre class="brush:csharp;">[HttpPost]
+public JsonResult UpdatePerson(Person person)
+{
+    try
+    {
+        _repository.PersonRepository.UpdatePerson(person);
+        return Json(new { Result = &quot;OK&quot; });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+	<div id="tabs-webforms-update">
+		<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object UpdatePerson(Person record)
+{
+	try
+	{
+		_repository.PersonRepository.UpdatePerson(record);
+		return new { Result = &quot;OK&quot; };
+	}
+	catch (Exception ex)
+	{
+		return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+	}
+}</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+	<div id="tabs-php-update">
+		<pre class="brush:php">//Update record in database
+$result = mysql_query("UPDATE people SET Name = '" . $_POST["Name"] . "', Age = " . $_POST["Age"] . " WHERE PersonId = " . $_POST["PersonId"] . ";");
+
+//Return result to jTable
+$jTableResult = array();
+$jTableResult['Result'] = "OK";
+print json_encode($jTableResult);</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+</div>
+
+<h3 id="DeleteAction">Deleting a record</h3>
+<p>When we click <strong>delete icon</strong> for a record, a confirmation dialog is shown to the user by jTable (confirmation is optional but open as defalut) :</p>
+<div class="centered"><img src="Content/images/GettingStarted/jtable-delete-confirmation-dialog.png" width="310" height="196" alt="jTable delete confirmation dialog" /></div>
+<p>When we click the delete button, a POST operation made to deleteAction URL with fallowing values:</p>
+<pre class="brush:html;">PersonId=3</pre>
+<p>You can delete the record 3 in the server. deleteAction also returns a JSON object like that:</p>
+<pre class="brush:html;">{&quot;Result&quot;:&quot;OK&quot;}</pre>
+<p>If <strong>Result </strong>is &quot;ERROR&quot;, a <strong>Message</strong> property can explain the error reason. If Result is &quot;OK&quot;, jTable deletes related row from the table in the page with an animation.</p>
+<p>Here, there are sample server-side codes for <strong>deleteAction</strong> in some common server-side technologies:</p>
+
+<div class="tabsContainer">
+    <ul>
+        <li><a href="GettingStarted.html#tabs-mvc-delete">ASP.NET MVC</a></li>
+        <li><a href="GettingStarted.html#tabs-webforms-delete">ASP.NET Web Forms</a></li>
+        <li><a href="GettingStarted.html#tabs-php-delete">PHP</a></li>
+    </ul>
+    <div id="tabs-mvc-delete">
+        <pre class="brush:csharp;">[HttpPost]
+public JsonResult DeletePerson(int personId)
+{
+    try
+    {
+        _repository.PersonRepository.DeletePerson(personId);
+        return Json(new { Result = &quot;OK&quot; });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+	<div id="tabs-webforms-delete">
+		<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object DeletePerson(int PersonId)
+{
+	try
+	{
+		_repository.PersonRepository.DeletePerson(PersonId);
+		return new { Result = &quot;OK&quot; };
+	}
+	catch (Exception ex)
+	{
+		return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+	}
+}</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+	<div id="tabs-php-delete">
+		<pre class="brush:php">//Delete from database
+$result = mysql_query(&quot;DELETE FROM people WHERE PersonId = &quot; . $_POST[&quot;PersonId&quot;] . &quot;;&quot;);
+
+//Return result to jTable
+$jTableResult = array();
+$jTableResult[&#39;Result&#39;] = &quot;OK&quot;;
+print json_encode($jTableResult);</pre>
+		<p class="code-extra">
+			Download all samples from <a href="Home/Downloads.html" target="_blank">download page</a>.
+		</p>
+	</div>
+</div>
+
+<h3 id="Result">The result</h3>
+<p>Here, the result jTable instance. Try it yourself:</p>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#PersonTableContainer').jtable({
+            title: 'Table of people',
+            actions: {
+                listAction: '/GettingStarted/PersonList',
+                createAction: '/GettingStarted/CreatePerson',
+                updateAction: '/GettingStarted/UpdatePerson',
+                deleteAction: '/GettingStarted/DeletePerson'
+            },
+            fields: {
+                PersonId: {
+                    key: true,
+                    list: false
+                },
+                Name: {
+                    title: 'Author Name',
+                    width: '40%'
+                },
+                Age: {
+                    title: 'Age',
+                    width: '20%'
+                },
+                RecordDate: {
+                    title: 'Record date',
+                    width: '30%',
+                    type: 'date',
+                    create: false,
+                    edit: false
+                }
+            }
+        });
+
+        $('#PersonTableContainer').jtable('load');
+    });
+</script>
+
+            </div>
+            
+<div id="PersonTableContainer">
+</div>    
+
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

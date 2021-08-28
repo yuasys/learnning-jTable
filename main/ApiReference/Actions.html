@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - API Reference</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                <h2>jTable API Reference - Actions</h2>
+<ul>
+    <li><a href="Actions.html#act-listAction">listAction</a></li>
+    <li><a href="Actions.html#act-createAction">createAction</a></li>
+    <li><a href="Actions.html#act-updateAction">updateAction</a></li>
+    <li><a href="Actions.html#act-deleteAction">deleteAction</a></li>
+</ul>
+<h2 id="Actions">Actions</h2>
+<p>An action defines how to communicate from client to the server. There are four types of action:</p>
+<ul>
+    <li><strong>listAction</strong>: Defined how to to get the list of records.</li>
+    <li><strong>createAction</strong>: Defined how to submit a create new record form.</li>
+    <li><strong>updateAction</strong>: Defined how to submit an edit record form.</li>
+    <li><strong>deleteAction</strong>: Defined how to delete a record.</li>
+</ul>
+<p>An action must be defined in actions list of jTable options a like:</p>
+<pre class="brush:js">...
+actions: {
+	//Actions definitions come here
+}
+...</pre>
+
+<p>An action value can be a URL string or a function (See each action for details).</p>
+
+<div class="api-option" id="act-listAction">
+    <div class="api-option-header">
+        <div><span class="option-name">listAction</span></div>
+        <div><span class="option-type">URL string or function</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+
+    <h3>Setting a URL string as listAction</h3>
+
+    <p>If you defined listAction as a URL string, then, when you use the <strong>load</strong> method, jTable makes an AJAX <strong>POST</strong> to this URL address to get list of records. This URL must return a <strong>JSON object</strong>. Here, there is a sample return value for this URL:</p>
+<pre class="brush:js">{
+ &quot;Result&quot;:&quot;OK&quot;,
+ &quot;Records&quot;:[
+  {&quot;PersonId&quot;:1,&quot;Name&quot;:&quot;Benjamin Button&quot;,&quot;Age&quot;:17,&quot;RecordDate&quot;:&quot;\/Date(1320259705710)\/&quot;},
+  {&quot;PersonId&quot;:2,&quot;Name&quot;:&quot;Douglas Adams&quot;,&quot;Age&quot;:42,&quot;RecordDate&quot;:&quot;\/Date(1320259705710)\/&quot;},
+  {&quot;PersonId&quot;:3,&quot;Name&quot;:&quot;Isaac Asimov&quot;,&quot;Age&quot;:26,&quot;RecordDate&quot;:&quot;\/Date(1320259705710)\/&quot;},
+  {&quot;PersonId&quot;:4,&quot;Name&quot;:&quot;Thomas More&quot;,&quot;Age&quot;:65,&quot;RecordDate&quot;:&quot;\/Date(1320259705710)\/&quot;}
+ ]
+}</pre>
+    <p><strong>Result </strong>property can be &quot;<strong>OK</strong>&quot; or &quot;<strong>ERROR</strong>&quot;. If it is &quot;OK&quot;, <strong>Records</strong> property must be an array of records. If Result is &quot;ERROR&quot;, <strong>Message </strong>property must explain reason of the error to show to the user.</p>
+    <p>Spesifically, a <strong>date field </strong>(that is transferred between jTable and server side code) must be one of the formats below:</p>
+    <ul>
+        <li>
+            <strong>&quot;/Date(...)/&quot;</strong><br />
+            Example: /Date(<span class="brush:js">1320259705710</span>)/ (Note: The number inside Date(...) is the milliseconds passed from 01.01.1970)
+        </li>
+        <li>
+            <strong>&quot;YYYY-MM-DD HH:MM:SS&quot;</strong><br />
+            Example:
+            2012-01-03 21:40:42
+        </li>
+        <li>
+            <strong>&quot;YYYY-MM-DD&quot;</strong><br />
+            Example:
+            2012-01-03
+        </li>
+    </ul>
+
+    <div class="expandable-area">
+        <span class="expandable-header">Click here to see sample server side codes in ASP.NET MVC, ASP.NET and PHP for <strong>listAction</strong>.</span>
+        <div class="expandable-content">
+            <div class="tabsContainer">
+                <ul>
+                    <li><a href="Actions.html#tabs-mvc-list">ASP.NET MVC</a></li>
+                    <li><a href="Actions.html#tabs-webforms-list">ASP.NET Web Forms</a></li>
+                    <li><a href="Actions.html#tabs-php-list">PHP</a></li>
+                </ul>
+                <div id="tabs-mvc-list">
+                    <pre class="brush:csharp;">[HttpPost]
+public JsonResult PersonList()
+{
+    try
+    {
+        List&lt;Person&gt; persons = _repository.PersonRepository.GetAllPeople();
+        return Json(new { Result = &quot;OK&quot;, Records = persons });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-webforms-list">
+                    <pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object PersonList()
+{
+	try
+	{
+		List&lt;Person&gt; persons = _repository.PersonRepository.GetAllPeople();
+		return new { Result = &quot;OK&quot;, Records = persons };
+	}
+	catch (Exception ex)
+	{
+		return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+	}
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-php-list">
+                    <pre class="brush:php">//Get records from database
+$result = mysql_query(&quot;SELECT * FROM people;&quot;);
+//Add all records to an array
+$rows = array();
+while($row = mysql_fetch_array($result))
+{
+	$rows[] = $row;
+}
+//Return result to jTable
+$jTableResult = array();
+$jTableResult[&#39;Result&#39;] = &quot;OK&quot;;
+$jTableResult[&#39;Records&#39;] = $rows;
+print json_encode($jTableResult);</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4>Paging</h4>
+
+    <p>If paging is enabled, jTable sends two query string parameters to the server on listAction AJAX call:</p>
+    <ul>
+        <li><strong>jtStartIndex</strong>: Start index of records for current page.</li>
+        <li><strong>jtPageSize</strong>: Count of maximum expected records.</li>
+    </ul>
+    <p>Also, one additional information is expected from server:</p>
+    <ul>
+        <li><strong>TotalRecordCount</strong>: Total count of records (not only this page).</li>
+    </ul>
+
+    <h4>Sorting</h4>
+
+    <p>If sorting is enabled, jTable sends one additional query string parameter to the server on listAction AJAX call:</p>
+    <ul>
+        <li><strong>jtSorting</strong>: A string represents requested sorting. It is built from sorting field name plus sorting direction. For instance, It can be '<em>Name ASC</em>', '<em>BirtDate DESC</em>', '<em>Age ASC</em>' or can be '<em>CityId DESC,Name ASC</em>' if <a href="GeneralOptions.html#genopt-multiSorting">multiSotring</a> is enabled..</li>
+    </ul>
+
+    <div class="expandable-area">
+        <span class="expandable-header">Click here to see sample server side codes in ASP.NET MVC, ASP.NET and PHP for <strong>paged and sorted listAction</strong>.</span>
+        <div class="expandable-content">
+            <div class="tabsContainer">
+                <ul>
+                    <li><a href="Actions.html#tabs-mvc-list">ASP.NET MVC</a></li>
+                    <li><a href="Actions.html#tabs-webforms-list">ASP.NET Web Forms</a></li>
+                    <li><a href="Actions.html#tabs-php-list">PHP</a></li>
+                </ul>
+                <div id="tabs-mvc-list">
+                    <pre class="brush:csharp;">[HttpPost]
+public JsonResult StudentList(int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
+{
+    try
+    {
+        var studentCount = _repository.StudentRepository.GetStudentCount();
+        List&lt;Student&gt; students = _repository.StudentRepository.GetStudents(jtStartIndex, jtPageSize, jtSorting);
+        return Json(new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-webforms-list">
+                    <pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object StudentList(int jtStartIndex, int jtPageSize, string jtSorting)
+{
+    try
+    {
+        int studentCount = _repository.StudentRepository.GetStudentCount();
+        List&lt;Student&gt; students = _repository.StudentRepository.GetStudents(jtStartIndex, jtPageSize, jtSorting);
+        return new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount };
+    }
+    catch (Exception ex)
+    {
+        return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+    }
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-php-list">
+                    <pre class="brush:php">//Get record count
+$result = mysql_query(&quot;SELECT COUNT(*) AS RecordCount FROM people;&quot;);
+$row = mysql_fetch_array($result);
+$recordCount = $row[&#39;RecordCount&#39;];
+//Get records from database
+$result = mysql_query(&quot;SELECT * FROM people ORDER BY &quot; . $_GET[&quot;jtSorting&quot;] . &quot; LIMIT &quot; . $_GET[&quot;jtStartIndex&quot;] . &quot;,&quot; . $_GET[&quot;jtPageSize&quot;] . &quot;;&quot;);
+//Add all records to an array
+$rows = array();
+while($row = mysql_fetch_array($result))
+{
+	$rows[] = $row;
+}
+//Return result to jTable
+$jTableResult = array();
+$jTableResult[&#39;Result&#39;] = &quot;OK&quot;;
+$jTableResult[&#39;TotalRecordCount&#39;] = $recordCount;
+$jTableResult[&#39;Records&#39;] = $rows;
+print json_encode($jTableResult);</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Setting a function as listAction</h3>
+
+    <p>You can set a function to this action. Your function can return one of the followings:</p>
+
+    <ul>
+        <li>The <strong>data</strong> (result) itself</li>
+        <li>A <strong>promise</strong> (using <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a>) to return the data (result)</li>
+    </ul>
+
+    <p>To return the data itself, you can write such an action definition:</p>
+
+    <pre class="brush:js">listAction: function (postData, jtParams) {
+    return {
+        &quot;Result&quot;: &quot;OK&quot;,
+        &quot;Records&quot;: [
+            { &quot;StudentId&quot;: 39, &quot;ContinentalId&quot;: 1, &quot;CountryId&quot;: 18, &quot;CityId&quot;: 55, &quot;Name&quot;: &quot;Agatha Garcia&quot;, &quot;EmailAddress&quot;: &quot;agatha.garcia@jtable.org&quot;, &quot;Password&quot;: &quot;123&quot;, &quot;Gender&quot;: &quot;F&quot;, &quot;BirthDate&quot;: &quot;\/Date(-1125111600000)\/&quot;, &quot;About&quot;: &quot;&quot;, &quot;Education&quot;: 2, &quot;IsActive&quot;: true, &quot;RecordDate&quot;: &quot;\/Date(1369083600000)\/&quot; },
+            { &quot;StudentId&quot;: 61, &quot;ContinentalId&quot;: 4, &quot;CountryId&quot;: 1, &quot;CityId&quot;: 1, &quot;Name&quot;: &quot;Agatha Lafore&quot;, &quot;EmailAddress&quot;: &quot;agatha.lafore@jtable.org&quot;, &quot;Password&quot;: &quot;123&quot;, &quot;Gender&quot;: &quot;F&quot;, &quot;BirthDate&quot;: &quot;\/Date(1017694800000)\/&quot;, &quot;About&quot;: &quot;&quot;, &quot;Education&quot;: 3, &quot;IsActive&quot;: true, &quot;RecordDate&quot;: &quot;\/Date(1393192800000)\/&quot; }],
+        &quot;TotalRecordCount&quot;: 2
+    };
+}</pre>
+
+    <p>
+        While returning the data is usable in demos, it's not the common case for real world scenarios.
+        Probably you want to make an ajax call and get the data from the server.
+        In this case, you can return a promise using <strong><a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a></strong> object as shown example below:
+    </p>
+
+    <pre class="brush:js; highlight:[2,9,12]">listAction: function (postData, jtParams) {
+    return $.Deferred(function ($dfd) {
+        $.ajax({
+            url: &#39;/Demo/StudentList?jtStartIndex=&#39; + jtParams.jtStartIndex + &#39;&amp;jtPageSize=&#39; + jtParams.jtPageSize + &#39;&amp;jtSorting=&#39; + jtParams.jtSorting,
+            type: &#39;POST&#39;,
+            dataType: &#39;json&#39;,
+            data: postData,
+            success: function (data) {
+                $dfd.resolve(data);
+            },
+            error: function () {
+                $dfd.reject();
+            }
+        });
+    });
+}</pre>
+
+    This function gets some arguments:
+
+    <ul>
+        <li><strong>postData</strong>: If you called <a href="Methods.html#met-load">load method</a> with a post data, this is the data you provided.</li>
+        <li>
+            <strong>jtParams</strong>: Used to pass jTable-specific parameters as an object. This object can has 3 properties:
+            <ul>
+                <li><strong>jtStartIndex</strong>: If you used <a href="GeneralOptions.html#genopt-paging">paging</a>, this is the start index to get records from server.</li>
+                <li><strong>jtPageSize</strong>: If you used <a href="GeneralOptions.html#genopt-paging">paging</a>, this is the page size (max record count) to get records from server.</li>
+                <li><strong>jtSorting</strong>: If you used <a href="GeneralOptions.html#genopt-sorting">sorting</a>, this is the sorting information as described above (previous section).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>In the function, you can change format of returning data before use $dfd.resolve(data). Data must be formatted as expected format as jTable waits for. So, all of the written in 'Setting a URL string as listAction' are also valid here.</p>
+
+</div>
+
+<div class="api-option" id="act-createAction">
+    <div class="api-option-header">
+        <div><span class="option-name">createAction</span></div>
+        <div><span class="option-type">URL string or function</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+
+    <h3>Setting a URL string as createAction</h3>
+
+    <p>If you defined createAction as a URL, then, when you create and save a record, jTable makes an AJAX <strong>POST </strong>call to this URL address to save the record to the server. </p><p>createAction is <b>optional</b>. If it is not defined, user can not add new records to the table. This URL must return a <strong>JSON object</strong>. Here, there is a sample return value for this URL:</p>
+
+<pre class="brush:js">{
+ &quot;Result&quot;:&quot;OK&quot;,
+ &quot;Record&quot;:{&quot;PersonId&quot;:5,&quot;Name&quot;:&quot;Dan Brown&quot;,&quot;Age&quot;:55,&quot;RecordDate&quot;:&quot;\/Date(1320262185197)\/&quot;}
+}</pre>
+    <p><strong>Result </strong>property can be &quot;<strong>OK</strong>&quot; or &quot;<strong>ERROR</strong>&quot;. If it is &quot;<strong>OK</strong>&quot;, <strong>Record </strong>property must be the newly created record. This is needed by jTable to add record to the table. If Result is &quot;ERROR&quot;, <strong>Message </strong>property must explain reason of the error to show to the user.</p>
+    <div class="expandable-area">
+        <span class="expandable-header">Click here to see sample server side codes in ASP.NET MVC, ASP.NET and PHP for <strong>createAction</strong>.</span>
+        <div class="expandable-content">
+            <div class="tabsContainer">
+                <ul>
+                    <li><a href="Actions.html#tabs-mvc-create">ASP.NET MVC</a></li>
+                    <li><a href="Actions.html#tabs-webforms-create">ASP.NET Web Forms</a></li>
+                    <li><a href="Actions.html#tabs-php-create">PHP</a></li>
+                </ul>
+                <div id="tabs-mvc-create">
+                    <pre class="brush:csharp;">[HttpPost]
+public JsonResult CreatePerson(Person person)
+{
+    try
+    {
+        Person addedPerson = _repository.PersonRepository.AddPerson(person);
+        return Json(new { Result = &quot;OK&quot;, Record = addedPerson });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-webforms-create">
+                    <pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object CreatePerson(Person record)
+{
+	try
+	{
+		Person addedPerson = _repository.PersonRepository.AddPerson(record);
+		return new { Result = &quot;OK&quot;, Record = addedPerson };
+	}
+	catch (Exception ex)
+	{
+		return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+	}
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-php-create">
+                    <pre class="brush:php">//Insert record into database
+$result = mysql_query("INSERT INTO people(Name, Age, RecordDate) VALUES('" . $_POST["Name"] . "', " . $_POST["Age"] . ",now());");
+//Get last inserted record (to return to jTable)
+$result = mysql_query("SELECT * FROM people WHERE PersonId = LAST_INSERT_ID();");
+$row = mysql_fetch_array($result);
+//Return result to jTable
+$jTableResult = array();
+$jTableResult['Result'] = "OK";
+$jTableResult['Record'] = $row;
+print json_encode($jTableResult);</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Setting a function as createAction</h3>
+
+    <p>You can set a function to this action. Your function can return one of the followings:</p>
+
+    <ul>
+        <li>The <strong>data</strong> (result) itself</li>
+        <li>A <strong>promise</strong> (using <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a>) to return the data (result)</li>
+    </ul>
+
+    <p>Since it's very similar to listAction, it will not be defined in detailed here. You can see the <a href="../Demo/FunctionsAsActions.html">demo</a>.</p>
+
+</div>
+
+<div class="api-option">
+    <div class="api-option-header" id="act-updateAction">
+        <div><span class="option-name">updateAction</span></div>
+        <div><span class="option-type">URL string or function</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+
+    <h3>Setting a URL string as updateAction</h3>
+
+    <p>When you edit and save a record, jTable makes an AJAX <strong>POST</strong> to this URL address to update record on the server.</p>
+    <p>updateAction is <strong>optional</strong>. If it is not defined, edit image (button) is not shown. This URL must return a <strong>JSON object</strong>. Here, there is a sample return value for this URL:</p>
+<pre class="brush:js">{&quot;Result&quot;:&quot;OK&quot;}</pre>
+    <p><strong>Result </strong>property can be &quot;<strong>OK</strong>&quot; or &quot;<strong>ERROR</strong>&quot;. If Result is &quot;ERROR&quot;, <strong>Message </strong>property must explain reason of the error to show to the user.</p>
+    <p>updateAction can also return a <strong>Record</strong> value (optional). This record is <strong>overwriten</strong> to updating record in the table. It's not completely replaced, overwritten field by field. So, for instance, if you return a record with just a single field, only this field is overwritten.</p>
+<pre class="brush:js">{
+ &quot;Result&quot;:&quot;OK&quot;,
+ &quot;Record&quot;:{&quot;Name&quot;:&quot;Dan Brown&quot;,&quot;Age&quot;:55,&quot;LastUpdateDate&quot;:&quot;\/Date(1320262185197)\/&quot;}
+}</pre>
+
+    <div class="expandable-area">
+        <span class="expandable-header">Click here to see sample server side codes in ASP.NET MVC, ASP.NET and PHP for <strong>updateAction</strong>.</span>
+        <div class="expandable-content">
+            <div class="tabsContainer">
+                <ul>
+                    <li><a href="Actions.html#tabs-mvc-update">ASP.NET MVC</a></li>
+                    <li><a href="Actions.html#tabs-webforms-update">ASP.NET Web Forms</a></li>
+                    <li><a href="Actions.html#tabs-php-update">PHP</a></li>
+                </ul>
+                <div id="tabs-mvc-update">
+                    <pre class="brush:csharp;">[HttpPost]
+public JsonResult UpdatePerson(Person person)
+{
+    try
+    {
+        _repository.PersonRepository.UpdatePerson(person);
+        return Json(new { Result = &quot;OK&quot; });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-webforms-update">
+                    <pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object UpdatePerson(Person record)
+{
+	try
+	{
+		_repository.PersonRepository.UpdatePerson(record);
+		return new { Result = &quot;OK&quot; };
+	}
+	catch (Exception ex)
+	{
+		return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+	}
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-php-update">
+                    <pre class="brush:php">//Update record in database
+$result = mysql_query("UPDATE people SET Name = '" . $_POST["Name"] . "', Age = " . $_POST["Age"] . " WHERE PersonId = " . $_POST["PersonId"] . ";");
+//Return result to jTable
+$jTableResult = array();
+$jTableResult['Result'] = "OK";
+print json_encode($jTableResult);</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Setting a function as updateAction</h3>
+
+    <p>You can set a function to this action. Your function can return one of the followings:</p>
+
+    <ul>
+        <li>The <strong>data</strong> (result) itself</li>
+        <li>A <strong>promise</strong> (using <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a>) to return the data (result)</li>
+    </ul>
+
+    <p>Since it's very similar to listAction, it will not be defined in detailed here. You can see the <a href="../Demo/FunctionsAsActions.html">demo</a>.</p>
+
+</div>
+
+<div class="api-option" id="act-deleteAction">
+    <div class="api-option-header">
+        <div><span class="option-name">deleteAction</span></div>
+        <div><span class="option-type">URL string or function</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+
+    <h3>Setting a URL string as deleteAction</h3>
+
+    <p>When you delete a record, jTable makes an AJAX <strong>POST</strong> to this URL address to delete the record on the server.</p>
+    <p>deleteAction is <strong>optional</strong>. If it is not defined, delete image (button) is not shown. This URL must return a <strong>JSON object</strong>. Here, there is a sample return value for this URL:</p>
+<pre class="brush:js">{&quot;Result&quot;:&quot;OK&quot;}</pre>
+    <p><strong>Result </strong>property can be &quot;<strong>OK</strong>&quot; or &quot;<strong>ERROR</strong>&quot;. If Result is &quot;ERROR&quot;, <strong>Message </strong>property must explain reason of the error to show to the user.</p>
+    <div class="expandable-area">
+        <span class="expandable-header">Click here to see sample server side codes in ASP.NET MVC, ASP.NET and PHP for <strong>deleteAction</strong>.</span>
+        <div class="expandable-content">
+            <div class="tabsContainer">
+                <ul>
+                    <li><a href="Actions.html#tabs-mvc-delete">ASP.NET MVC</a></li>
+                    <li><a href="Actions.html#tabs-webforms-delete">ASP.NET Web Forms</a></li>
+                    <li><a href="Actions.html#tabs-php-delete">PHP</a></li>
+                </ul>
+                <div id="tabs-mvc-delete">
+                    <pre class="brush:csharp;">[HttpPost]
+public JsonResult DeletePerson(int personId)
+{
+    try
+    {
+        _repository.PersonRepository.DeletePerson(personId);
+        return Json(new { Result = &quot;OK&quot; });
+    }
+    catch (Exception ex)
+    {
+        return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+    }
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-webforms-delete">
+                    <pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object DeletePerson(int PersonId)
+{
+	try
+	{
+		_repository.PersonRepository.DeletePerson(PersonId);
+		return new { Result = &quot;OK&quot; };
+	}
+	catch (Exception ex)
+	{
+		return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+	}
+}</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+                <div id="tabs-php-delete">
+                    <pre class="brush:php">//Delete from database
+$result = mysql_query(&quot;DELETE FROM people WHERE PersonId = &quot; . $_POST[&quot;PersonId&quot;] . &quot;;&quot;);
+//Return result to jTable
+$jTableResult = array();
+$jTableResult[&#39;Result&#39;] = &quot;OK&quot;;
+print json_encode($jTableResult);</pre>
+                    <p class="code-extra">
+                        Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h3>Setting a function as updateAction</h3>
+
+    <p>You can set a function to this action. Your function can return one of the followings:</p>
+
+    <ul>
+        <li>The <strong>data</strong> (result) itself</li>
+        <li>A <strong>promise</strong> (using <a href="http://api.jquery.com/category/deferred-object/" target="_blank">jQuery.Deferred</a>) to return the data (result)</li>
+    </ul>
+
+    <p>Since it's very similar to listAction, it will not be defined in detailed here. You can see the <a href="../Demo/FunctionsAsActions.html">demo</a>.</p>
+
+</div>
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

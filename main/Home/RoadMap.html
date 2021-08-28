@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - Road Map</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="Downloads.html">Downloads</a> | <a href="About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                
+<h2>Road map</h2>
+
+<p>Here, a list of features to implement in next versions of jTable. You can <strong>discuss</strong> on those features at the end of this page.</p>
+
+<p>Beside this features, there are many improvements in my mind but I did not think on them enough to share here.</p>
+
+<h3>Major features/changes in next versions</h3>
+
+<ul class="contains-issues">
+    <li>Defining actions as objects instead of just url strings. Thus, you will be able to customize ajax requests.</li>    
+    <li data-issue="57">Footer row and API that allows to create footer rows for your table. Think a field definition like <em>footer: 'sum'</em> will add a sum of values in this column. Also, it can be a function, it can be sent by server and so on.</li>
+    <li data-issue="108,120">Templating edit/create forms.</li>
+    <li data-issue="108,120">A way of opening multiple child tables in closable jQueryUI tabs.</li>
+    <li>A built-in search box.</li>
+    <li>A detailed view of record that is opened in a dialog and shows all fields of the record. This maybe usefull if record has too many fields those can not shown on the table.</li>
+    <li data-issue="21">Inline editing.</li>
+</ul>
+
+<h3>Minor features/changes in next versions</h3>
+
+<ul class="contains-issues">
+    <li data-issue="15">Formatting numbers. Also, formatting any type of data according to it's <a href="../ApiReference.html#fopt-type">type</a> in the future.</li>
+    <li>toggleChildTable method that is used to easily open/close child tables with single method call.</li>
+    <li data-issue="102">Moving the header row with document, when paging is not enabled and the document is scrolling, and the header is not showing anymore.</li>
+    <li data-issue="9">Checkbox list/group.</li>
+    <li data-issue="">Width of a column can be 'auto'. Thus, auto columns fills the remaining space.</li>
+    <li data-issue="72">getRecords method that is used to get all rows and records on the table.</li>
+    <li data-issue="12">Edit and delete icons can be shown as first columns instead of the last columns.</li>
+    <li data-issue="">Cascaded radio button lists just like cascaded comboboxes.</li>
+</ul>
+
+<h3>Discussion</h3>
+<p>Please write your comments here.</p>
+<div>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'jtable'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

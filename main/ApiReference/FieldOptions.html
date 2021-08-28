@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - API Reference</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                <h2>jTable API Reference - Field options</h2>
+<ul>
+    <li><a href="FieldOptions.html#fopt-columnResizable">columnResizable</a></li>
+    <li><a href="FieldOptions.html#fopt-create">create</a></li>
+    <li><a href="FieldOptions.html#fopt-edit">edit</a></li>
+    <li><a href="FieldOptions.html#fopt-defaultValue">defaultValue</a></li>
+    <li><a href="FieldOptions.html#fopt-dependsOn">dependsOn</a></li>
+    <li><a href="FieldOptions.html#fopt-display">display</a></li>
+    <li><a href="FieldOptions.html#fopt-input">input</a></li>
+    <li><a href="FieldOptions.html#fopt-inputClass">inputClass</a></li>
+    <li><a href="FieldOptions.html#fopt-inputTitle">inputTitle</a></li>
+    <li><a href="FieldOptions.html#fopt-key">key</a></li>
+    <li><a href="FieldOptions.html#fopt-list">list</a></li>
+    <li><a href="FieldOptions.html#fopt-listClass">listClass</a></li>
+    <li><a href="FieldOptions.html#fopt-options">options</a></li>
+    <li><a href="FieldOptions.html#fopt-optionsSorting">optionsSorting</a></li>
+    <li><a href="FieldOptions.html#fopt-sorting">sorting</a></li>
+    <li><a href="FieldOptions.html#fopt-title">title</a></li>
+    <li><a href="FieldOptions.html#fopt-type">type</a></li>
+    <li><a href="FieldOptions.html#fopt-visibility">visibility</a></li>
+    <li><a href="FieldOptions.html#fopt-width">width</a></li>
+</ul>
+
+<p>A field definition defines structure and behavior of a field of the record. It's generally formatted as:</p>
+<pre class="brush:js">FieldName: {
+    //Field options
+}</pre>
+
+<div class="api-option" id="fopt-columnResizable">
+    <div class="api-option-header">
+        <div><span class="option-name">columnResizable</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>A boolean value that indicates whether this column can be resized by user. Table's <a href="GeneralOptions.html#genopt-columnResizable">columnResizable</a> option must be set to true (it's default) to use this option.</p>
+</div>
+
+<div class="api-option" id="fopt-create">
+    <div class="api-option-header">
+        <div><span class="option-name">create</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>A boolean value that indicates whether this field is shown in the create record form.</p>
+    <p>Default value is false for the <a href="FieldOptions.html#fopt-key">key</a> field. True for other fields.</p>
+</div>
+
+<div class="api-option" id="fopt-edit">
+    <div class="api-option-header">
+        <div><span class="option-name">edit</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>A boolean value that indicates whether this field is shown in the edit record form.</p>
+    <p>Default value is false for the <a href="FieldOptions.html#fopt-key">key</a> field. True for other fields.</p>
+</div>
+
+<div class="api-option" id="fopt-defaultValue">
+    <div class="api-option-header">
+        <div><span class="option-name">defaultValue</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>You can set a default value for a field. It must be a valid value. For instance, if the field is an option list, it must be one of these options.</p>
+</div>
+
+<div class="api-option" id="fopt-dependsOn">
+    <div class="api-option-header">
+        <div><span class="option-name">dependsOn</span></div>
+        <div><span class="option-type">string or array</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>This option is used to create <strong>cascaded</strong> dropdowns. If a combobox field depends on another combobox, jTable can automatically create cascaded dropdowns. See <a href="../Demo/CascadeDropDown.html">demo</a> for usage.</p>
+    <p>Here, there is a sample usage of this option to provide Country/City cascade comboboxes:</p>
+    <pre class="brush:js; highlight: [8,16]">CountryId: {
+	title: &#39;Country&#39;,
+	options: &#39;Demo/GetCountryOptions&#39;,
+	list: false
+},
+CityId: {
+	title: &#39;City&#39;,
+	dependsOn: &#39;CountryId&#39;, //Cities depends on countries.
+	options: function (data) {
+		if (data.source == &#39;list&#39;) {
+			//Return url of all cities for optimization. 
+			return &#39;Demo/GetCityOptions?countryId=0&#39;;
+		}
+		//This code runs when user opens edit/create form or changes country combobox on an edit/create form.
+		return &#39;Demo/GetCityOptions?countryId=&#39; + data.dependedValues.CountryId;
+	}
+}</pre>
+    <p>A field can be depended to more than one field. In this case, you can write fields seperated by comma as <strong>dependsOn: 'ContinentalId,CountryId'</strong> or as an array like <strong>dependsOn: ['ContinentalId', 'CountryId']</strong></p>
+    <p>See <a href="FieldOptions.html#fopt-options">options</a> option for more information.</p>
+</div>
+
+<div class="api-option" id="fopt-display">
+    <div class="api-option-header">
+        <div><span class="option-name">display</span></div>
+        <div><span class="option-type">function</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>This option is a function that allows you to define a fully custom column for table. jTable directly shows return value of this function on the table. See the sample below:</p>
+<pre class="brush:js">TestColumn: {
+    title: &#39;Test&#39;,
+    display: function (data) {
+        return &#39;&lt;b&gt;test&lt;/b&gt;&#39;;
+    }
+}</pre>
+    <p>This sample Test column returns a bold 'test' string for all rows. You can return any text, html code or jQuery object that will be shown on the table. This method is called for each row. You can get record of the row using <strong>data.record</strong>. So, if your record has Name property, you can use data.record.Name property to get the Name.</p>
+    <p>display function can be used for many purposes such as creating calculated columns, opening child tables for a row... etc. See demos for detailed usage.</p>
+</div>
+
+<div class="api-option" id="fopt-input">
+    <div class="api-option-header">
+        <div><span class="option-name">input</span></div>
+        <div><span class="option-type">function</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>This option is a function that allows you to define a fully custom input element for create and edit forms. jTable directly shows return value of this function on the form. See the sample below:</p>
+<pre class="brush:js">Name: {
+    title: &#39;Name&#39;,
+    width: &#39;20%&#39;,
+    input: function (data) {
+        if (data.record) {
+            return &#39;&lt;input type=&quot;text&quot; name=&quot;Name&quot; style=&quot;width:200px&quot; value=&quot;&#39; + data.record.Name + &#39;&quot; /&gt;&#39;;
+        } else {
+            return &#39;&lt;input type=&quot;text&quot; name=&quot;Name&quot; style=&quot;width:200px&quot; value=&quot;enter your name here&quot; /&gt;&#39;;
+        }
+    }
+}</pre>
+    <p><strong>data</strong> argument has some fields those can be used while creating the input:</p>
+    <ul>
+        <li><strong>data.formType</strong>: Can be 'create' or 'edit' according to the form.</li>
+        <li><strong>data.form</strong>: Reference to the form element as jQuery selection.</li>
+        <li><strong>data.record</strong>: Gets the editing record if this input is being created for edit form (if formType='edit'). So, it's undefined for 'create' form.</li>
+        <li><strong>data.value</strong>: Gets current value of the field. This is default value (if defined) of field for create form, current value of field for edit form.</li>
+    </ul>
+    <p>While jTable automatically creates appropriate input element for each field, you can use input option to create custom input elements. Remember to set <strong>name</strong> attribute of input element if you want to post this field to the server.</p>
+</div>
+
+<div class="api-option" id="fopt-inputClass">
+    <div class="api-option-header">
+        <div><span class="option-name">inputClass</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>A string value that can be set as the class of an input item for this field in create/edit forms. So you can style input elements in the forms for this field. This can be useful when working with validation plug-ins (we will see soon).</p>
+</div>
+
+<div class="api-option" id="fopt-inputTitle">
+    <div class="api-option-header">
+        <div><span class="option-name">inputTitle</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>This option can be used to show a different title for a field in edit/create forms. If it's not set, input title will be same as <a href="FieldOptions.html#fopt-title">title</a> option.</p>
+</div>
+
+<div class="api-option" id="fopt-key">
+    <div class="api-option-header">
+        <div><span class="option-name">key</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>A boolean value that indicates whether this field is the key (primary key) field of the record. Every record must has one and only one key field that is used on update and delete operations.</p>
+    <p>If a field is marked as key, <a href="FieldOptions.html#fopt-create">create</a> and <a href="FieldOptions.html#fopt-edit">edit</a> options are set to <strong>false</strong> as default.</p>
+    <p>If a key field is not editable in edit form, a <strong>hidden</strong> input element is generated for it. Thus, key value is post to server. If the key field is editable (with setting <a href="FieldOptions.html#fopt-edit">edit</a> option to true), key's original value (the value before update) is post to server as <strong>jtRecordKey</strong>.</p>
+</div>
+
+<div class="api-option" id="fopt-list">
+    <div class="api-option-header">
+        <div><span class="option-name">list</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p> A boolean value that indicates whether this field is shown in the table.</p>
+</div>
+
+<div class="api-option" id="fopt-listClass">
+    <div class="api-option-header">
+        <div><span class="option-name">listClass</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p> A string value that can be set as class/classes of a cell of this field (td element) in the table. Thus, you can stylize fields in the table.</p>
+</div>
+
+<div class="api-option" id="fopt-options">
+    <div class="api-option-header">
+        <div><span class="option-name">options</span></div>
+        <div><span class="option-type">object, array, URL or a function</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p> If this field's value will be selected in an option list (combobox as default, can be radio button list), you must supply a source. An option source can be one of these values:</p>
+    <ul>
+        <li><strong>object</strong>: Property names are values, property values are display texts.</li>
+        <li><strong>array</strong>: An array of options.</li>
+        <li><strong>URL</strong>: A URL to download the option list for this field.</li>
+        <li><strong>function</strong>: A function that takes some arguments and returns an object, an array or a URL string.</li>
+    </ul>
+
+    <h4>Defining an object</h4>
+    <p>This is the simplest way of defining options is creating an object like shown below:</p>
+    <pre class="brush:js; highlight:[3]">PhoneType: {
+	title: 'Phone type',
+	options: { '1': 'Home phone', '2': 'Office phone', '3': 'Cell phone' }
+}</pre>
+    <p>Thus, jTable creates a dropdown list in edit/create form for that field:</p>
+    <img src="../Content/images/Api/jtable-api-sample-combobox.png" width="148" height="112" />
+    <p>'1', '2' and '3' are values of combobox items respectively.</p>
+
+    <h4>Defining an array</h4>
+    <p>You can also define an array of options as shown below:</p>
+    <pre class="brush:js; highlight:[3]">PhoneType: {
+	title: 'Phone type',
+	options: [{ Value: '1', DisplayText: 'Home phone' }, { Value: '2', DisplayText: 'Office phone' }, { Value: '2', DisplayText: 'Cell phone' }]
+}</pre>
+    <p>Also, if values of your options are same as display texts, you can write as shown below:</p>
+    <pre class="brush:js; highlight:[3]">ClassYear: {
+	title: 'Phone type',
+	options: ['1','2','3','4']
+}</pre>
+    <h4>Defining a URL</h4>
+    <p>You can define a URL to download array of options:</p>
+    <pre class="brush:js; highlight:[3]">PhoneType: {
+	title: 'Class year',
+	options: '/Demo/GetPhoneTypes.php'
+}</pre>
+    <p>Your URL must return array of options just like described in the section above. A successfull return value from server is shown below:</p>
+    <pre class="brush:js">{
+   "Result":"OK",
+   "Options":[
+      {
+         "DisplayText":"Home phone",
+         "Value":"1"
+      },
+      {
+         "DisplayText":"Office phone",
+         "Value":"2"
+      },
+      {
+         "DisplayText":"Cell phone",
+         "Value":"3"
+      }
+   ]
+}</pre>
+    <p>Result can be "OK" or "ERROR". If it's "ERROR", you can supply a "Message" property to show to the user.</p>
+    <h4>Defining a function</h4>
+    <p>You can define a function that returns an object, an array or a URL string dynamically. Thus, you can show different options for specific records.</p>
+    <pre class="brush:js; highlight:[3]">PhoneType: {
+	title: 'Phone type',
+	options: function(data) {
+		if (data.source == 'list') {
+			//Return url all options for optimization. 
+			return '/Demo/GetPhoneTypes.php?UserType=0';
+		}
+		//This code runs when user opens edit/create form to create combobox.
+		//data.source == 'edit' || data.source == 'create'
+		return '/Demo/GetPhoneTypes.php?UserType=' + data.record.UserType;
+	}
+}</pre>
+
+    <p>
+        If you return a URL as the sample above, jTable downloads options from returned URL just described in the section above.
+    </p>
+    <p>For optimization, jTable <strong>caches</strong> all option lists based on URL, and gets options from local cache if you return <u>exactly</u> same URL. You can clear cache if you call <strong>data.clearCache()</strong> method in your function.</p>
+    <p>IMPORTANT: jTable also uses this function to show the related field in the table for each shown record. This is because your record contains Value of the field, not DisplayText and jTable needs to show display text (instead of value) in the table. So, when data.source=='list', returning different URLs causes more than one download to list records in the table. This may be a major performance problem. So, as shown the sample above, return URL of all options while listing (data.source=='list') and return filtered options in edit/create forms (if you need).</p>
+    <p>You may want to return the data from server with ana AJAX request. In this situation, you should get the data from server synhronously since you should return the options from the function. See <a href="../Demo/FunctionsAsActions.html">demo</a> and jQuery <a href="https://api.jquery.com/jQuery.ajax/" target="_blank">async</a> option.</p>
+    <p>The function has <strong>data</strong> argument which has some fields/methods those can be used to determine returning option list:</p>
+    <ul>
+        <li><strong>data.source</strong>: This field is used to know why this method is called. Can be '<strong>list</strong>', '<strong>create</strong>' or '<strong>edit</strong>'.</li>
+        <li><strong>data.clearCache()</strong>: This method is used to clear cache for currently returning URL. So, you can ensure that your options will be re-downloaded.</li>
+        <li><strong>data.form</strong>: This field is used to get a reference to the create/edit form (as jQuery selection). It's valid if data.source is '<strong>create</strong>' or '<strong>edit</strong>'.</li>
+        <li><strong>data.record</strong>: This field is used to get related record with this function call. So, you can return options according to fields of the record (as shown sample). It's valid if data.source is '<strong>list</strong>' or '<strong>edit</strong>'</li>
+        <li><strong>data.dependedValues</strong>: If you define <a href="FieldOptions.html#fopt-dependsOn">dependsOn</a> option for this field, you can get current value of depended fields using data.dependedValues. See the sample in <a href="FieldOptions.html#fopt-dependsOn">dependsOn</a> option.</li>
+    </ul>
+    <p><a href="FieldOptions.html#fopt-dependsOn">dependsOn</a> option and data.dependedValues work as pair and provide you to create <strong>cascade dropdowns</strong>. See <a href="FieldOptions.html#fopt-dependsOn">dependsOn</a> option for sample usage. See <a href="../Demo/CascadeDropDown.html">demo</a> for complete running example.</p>
+</div>
+
+<div class="api-option" id="fopt-optionsSorting">
+    <div class="api-option-header">
+        <div><span class="option-name">optionsSorting</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>As default, jTable does not sort <a href="FieldOptions.html#fopt-options">options</a> and shows in order which you supplied. This option can be used to automatically sort options. Possible values of this option:</p>
+    <ul>
+        <li><strong>value</strong>: Sorts options according to value (ascending).</li>
+        <li><strong>value-desc</strong>: Sorts options according to value (descending).</li>
+        <li><strong>text</strong>: Sorts options according to display text (ascending).</li>
+        <li><strong>text-desc</strong>: Sorts options according to display text (descending).</li>
+    </ul>
+</div>
+
+<div class="api-option" id="fopt-sorting">
+    <div class="api-option-header">
+        <div><span class="option-name">sorting</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>Indicates that whether this column will be used to sort the table (If table is sortable).</p>
+</div>
+
+<div class="api-option" id="fopt-title">
+    <div class="api-option-header">
+        <div><span class="option-name">title</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p> Column header in the table and label in the forms for this field. This option is required if the field is shown on the table or create/edit forms.</p>
+</div>
+
+<div class="api-option" id="fopt-type">
+    <div class="api-option-header">
+        <div><span class="option-name">type</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: text</span></div>
+    </div>
+    <p> Data type for this field. If field is text or number, no need to set type. Other types are:</p>
+    <ul>
+        <li><strong>password</strong>: Show a password textbox for this field on edit/create forms.</li>
+        <li><strong>textarea</strong>: Shows a textarea for this field on edit/create forms.</li>
+        <li>
+            <strong>date</strong>: A date field (not including time part).  A jQueryUI date picker is automatically created for this field on edit/create forms. If a field is date, it can define additional options:
+            <ul>
+                <li><strong>displayFormat</strong>: Format of date. See <a href="http://docs.jquery.com/UI/Datepicker/formatDate" target="_blank">jQueryUI datepicker formats</a>.</li>
+            </ul>
+        </li>
+        <li><strong>radiobutton</strong>: If field is a value from an option list, it can be a <strong>combobox </strong>(default) or radio button list. If it is a radio button list, set type as radiobutton. You must supply <strong>options</strong> list for this type.</li>
+        <li>
+            <strong>checkbox</strong>: To show a checkbox while editing this field. If a field is checkbox, it can define additional options:
+            <ul>
+                <li><strong>values</strong>: Values for checked/unchecked states. Example: { '0' : 'Passive', '1' : 'Active' }. First value is for unchecked state, second value is for checked state.</li>
+                <li><strong>formText</strong>: By default, a checkbox's text changes when user changes the state of the checkbox. If you want to fix the text, you can set the formText option for this field (string).</li>
+                <li><strong>setOnTextClick</strong>: By default, when the user clicks the checkbox's text, the state of the checkbox changes. If you do not want that, you can set setOnTextClick to false.</li>
+            </ul>
+        </li>
+        <li><strong>hidden</strong>: A hidden field can be used hidden fields in edit and create forms. It is not shown on the table. You may want to use <a href="FieldOptions.html#fopt-defaultValue"><em>defaultValue</em></a> option with hidden types, thus given default value is automatically set to the hidden field on creating form. See master/child <a href="../Demo/MasterChild.html">demo</a> for sample usage.</li>
+    </ul>
+</div>
+
+<div class="api-option" id="fopt-visibility">
+    <div class="api-option-header">
+        <div><span class="option-name">visibility</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: 'visible'</span></div>
+    </div>
+    <p>
+        A column (related to a field) can be showed or hided by user or this option. Values can be:
+    </p>
+    <ul>
+        <li><strong>fixed</strong>: This column is always visible and can not be hided by the user.</li>
+        <li><strong>visible</strong>: This column is visible as default but can be hided by the user.</li>
+        <li><strong>hidden</strong>: This column is hidden as default but can be showed by the user.</li>
+    </ul>
+    <p>Note: User can open column selection list by right clicking the table header if <a href="GeneralOptions.html#genopt-columnSelectable">columnSelectable</a> option is true (it's true as default).</p>
+</div>
+
+<div class="api-option" id="fopt-width">
+    <div class="api-option-header">
+        <div><span class="option-name">width</span></div>
+        <div><span class="option-type">percentage</span></div>
+        <div><span class="option-default">default: '10%'</span></div>
+    </div>
+    <p>Width of the column for this field in the table. Can be a percantage value (ex: '30%'). It's required if the field is shown on the table. It's best to complete all shown field widths to 100%.</p>
+    <p>NOTE: jTable is designed to fit it's container element, not for a fixed width. So, all columns will be completed to 100%. If you want to fix table's width, set it's container's width.</p>
+</div>
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

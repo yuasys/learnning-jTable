@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - Themes and colors</title>
+
+    <link href="Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+    <style>
+        #ThemeList h4
+        {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            text-align: center;
+            color: #888;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .theme-item 
+        {
+            text-align: center;
+        }
+    </style>
+
+
+    <script src="Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="Demo.html">Demos</a> | <a href="Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="Themes.html">Themes</a> | <a href="Home/Downloads.html">Downloads</a> | <a href="Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                
+<div id="ThemeList">
+    <h2>
+        jTable Themes</h2>
+    <p>jTable has it's own themes. It also supports jQueryUI's theme system.</p>
+
+    <h3>jQueryUI's theme system</h3>
+    <p>jTable can use your jQueryUI theme. You can create and download your jQueryUI theme from <a target="_blank" href="http://jqueryui.com/themeroller/">http://jqueryui.com/themeroller/</a>.
+        So, limitless themes can be built for jTable easily.
+        Here, there are some example jQueryUI themes. Click images to see running demos.</p>
+
+    <h4 style="margin-top: 0px">
+        Flick</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=jqueryui-flick.html">
+            <img src="Content/images/Themes/jtable-jqueryui-flick-theme.png" width="681" height="401" alt="jTable metro style blue theme" />
+        </a>
+    </div>
+    
+     <h4>
+        Redmond</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=jqueryui-redmond.html">
+            <img src="Content/images/Themes/jtable-jqueryui-redmond-theme.png" width="680" height="398" alt="jTable metro style blue theme" />
+        </a>
+    </div>
+    
+     <h4>
+        Sunny</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=jqueryui-sunny.html">
+            <img src="Content/images/Themes/jtable-jqueryui-sunny-theme.png" width="680" height="398" alt="jTable metro style blue theme" />
+        </a>
+    </div>
+    
+     <h4>
+        Trontastic</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=jqueryui-trontastic.html">
+            <img src="Content/images/Themes/jtable-jqueryui-trontastic-theme.png" width="680" height="398" alt="jTable metro style blue theme" />
+        </a>
+    </div>
+    
+     <h4>
+        Ui-Darkness</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=jqueryui-ui-darkness.html">
+            <img src="Content/images/Themes/jtable-jqueryui-ui-darkness-theme.png" width="680" height="398" alt="jTable metro style blue theme" />
+        </a>
+    </div>
+    
+    <h3>Using jTable's own themes</h3>
+    <p> 
+        Here, all themes and colors those are built-in jTable. Click images to see running demos and needed information to use the theme.</p>
+    
+    <h4 style="margin-top: 0px">
+        Metro style - Blue</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Cblue%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-blue.png" width="678" height="360" alt="jTable metro style blue theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Brown</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Cbrown%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-brown.png" width="678" height="360" alt="jTable metro style brown theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Crimson</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Ccrimson%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-crimson.png" width="678" height="360" alt="jTable metro style crimson theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Dark gray</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Cdarkgray%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-darkgray.png" width="678" height="360" alt="jTable metro style dark gray theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Dark orange</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Cdarkorange%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-darkorange.png" width="678" height="360" alt="jTable metro style dark orange theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Green</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Cgreen%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-green.png" width="678" height="360" alt="jTable metro style green theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Light gray</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Clightgray%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-lightgray.png" width="678" height="360" alt="jTable metro style light gray theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Pink</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Cpink%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-pink.png" width="678" height="360" alt="jTable metro style pink theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Purple</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Cpurple%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-purple.png" width="678" height="360" alt="jTable metro style purple theme" />
+        </a>
+    </div>
+
+    <h4>
+        Metro style - Red</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=metro%7Cred%7Cjtable.css.html">
+            <img src="Content/images/Themes/jtable-metro-style-red.png" width="678" height="360" alt="jTable metro style red theme" />
+        </a>
+    </div>
+
+    <h4>
+        Light theme - Blue</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=lightcolor%7Cblue%7Cjtable.css.html">
+            <img src="Content/images/Themes/light_blue.png" alt="jTable light blue theme" />
+        </a>
+    </div>
+    <h4>
+        Light theme - Red</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=lightcolor%7Cred%7Cjtable.css.html">
+            <img src="Content/images/Themes/light_red.png" alt="jTable light red theme" />
+        </a>
+    </div>
+    <h4>
+        Light theme - Orange</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=lightcolor%7Corange%7Cjtable.css.html">
+            <img src="Content/images/Themes/light_orange.png" alt="jTable light orange theme" />
+        </a>
+    </div>
+    <h4>
+        Light theme - Green</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=lightcolor%7Cgreen%7Cjtable.css.html">
+            <img src="Content/images/Themes/light_green.png" alt="jTable light green theme" />
+        </a>
+    </div>
+    <h4>
+        Light theme - Gray</h4>
+    <div class="theme-item">
+        <a href="Demo/Theme-jTableStyle=lightcolor%7Cgray%7Cjtable.css.html">
+            <img src="Content/images/Themes/light_gray.png" alt="jTable light gray theme" />
+        </a>
+    </div>
+</div>
+
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

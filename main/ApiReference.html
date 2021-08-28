@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - API Reference</title>
+
+    <link href="Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="Demo.html">Demos</a> | <a href="Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="Themes.html">Themes</a> | <a href="Home/Downloads.html">Downloads</a> | <a href="Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                <h2>jTable API Reference</h2>
+
+<p><strong>jTable </strong>is used to develop <strong>AJAX </strong>based <strong>CRUD </strong>(Create/Retrive/Update/Delete) tables without coding <strong>HTML </strong>and <strong>JavaScript</strong>. Only needed HTML tag is a simple <strong>div </strong>element in your page:</p>
+<pre class="brush:html">&lt;div id=&quot;MyTableContainer&quot;&gt;&lt;/div&gt;</pre>
+<p>To initialize a <strong>jTable </strong>instance, you can call <strong>jtable </strong>method in the <strong>ready </strong>event of the <strong>document </strong>as like that:</p>
+<pre class="brush:js">&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function () {        	
+       $(&#39;#MyTableContainer&#39;).jtable({
+            
+            //General options comes here
+
+            actions: {
+                //Action definitions comes here
+            },
+            fields: {
+                //Field definitions comes here
+            }
+
+            //Event handlers...
+        });		
+    });
+&lt;/script&gt;</pre>
+<p><strong>jTable </strong>has three types of <strong>options</strong>:</p>
+<ul>
+    <li><strong>General options: </strong>Defines general behavior of the jTable instance.</li>
+    <li><strong>Actions</strong>: Defines how to communicate from client to the server.</li>
+    <li><strong>Fields</strong>: Defines structure of the record, create/edit forms and table. jTable defines an row  in the table as 'record'. So, a record must has fields as fields of a relational database table.</li>
+</ul>
+<p>NOTE: When you create a jTable instance, a table is created but no data is loaded to the table. <strong><a href="ApiReference/Methods.html#met-load">load</a></strong> method is used to do it. See <a href="GettingStarted.html">Getting Started</a> document for detailed usage.</p>
+
+    <h3>Complete Reference</h3>
+
+    <ul>
+        <li>
+            <a href="ApiReference/GeneralOptions.html">General options</a>
+            <ul>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-addRecordButton">addRecordButton</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-ajaxSettings">ajaxSettings</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-animationsEnabled">animationsEnabled</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-columnResizable">columnResizable</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-columnSelectable">columnSelectable</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-defaultDateFormat">defaultDateFormat</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-defaultSorting">defaultSorting</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-deleteConfirmation">deleteConfirmation</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-dialogShowEffect">dialogShowEffect</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-dialogHideEffect">dialogHideEffect</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-gotoPageArea">gotoPageArea</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-jqueryuiTheme">jqueryuiTheme</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-loadingAnimationDelay">loadingAnimationDelay</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-messages">messages</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-multiselect">multiselect</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-multiSorting">multiSorting</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-openChildAsAccordion">openChildAsAccordion</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-paging">paging</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-pageList">pageList</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-pageSize">pageSize</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-pageSizes">pageSizes</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-pageSizeChangeArea">pageSizeChangeArea</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-saveUserPreferences">saveUserPreferences</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-selecting">selecting</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-selectingCheckboxes">selectingCheckboxes</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-selectOnRowClick">selectOnRowClick</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-showCloseButton">showCloseButton</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-sorting">sorting</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-tableId">tableId</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-title">title</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-toolbar">toolbar</a></li>
+                <li><a href="ApiReference/GeneralOptions.html#genopt-unAuthorizedRequestRedirectUrl">unAuthorizedRequestRedirectUrl</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="ApiReference/FieldOptions.html">Field options</a>
+            <ul>
+                <li><a href="ApiReference/FieldOptions.html#fopt-columnResizable">columnResizable</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-create">create</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-edit">edit</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-defaultValue">defaultValue</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-dependsOn">dependsOn</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-display">display</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-input">input</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-inputClass">inputClass</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-inputTitle">inputTitle</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-key">key</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-list">list</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-listClass">listClass</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-options">options</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-optionsSorting">optionsSorting</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-sorting">sorting</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-title">title</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-type">type</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-visibility">visibility</a></li>
+                <li><a href="ApiReference/FieldOptions.html#fopt-width">width</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="ApiReference/Actions.html">Actions</a>
+            <ul>
+                <li><a href="ApiReference/Actions.html#act-listAction">listAction</a></li>
+                <li><a href="ApiReference/Actions.html#act-createAction">createAction</a></li>
+                <li><a href="ApiReference/Actions.html#act-updateAction">updateAction</a></li>
+                <li><a href="ApiReference/Actions.html#act-deleteAction">deleteAction</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="ApiReference/Methods.html">Methods</a>
+            <ul>
+                <li><a href="ApiReference/Methods.html#met-addRecord">addRecord</a></li>
+                <li><a href="ApiReference/Methods.html#met-closeChildRow">closeChildRow</a></li>
+                <li><a href="ApiReference/Methods.html#met-closeChildTable">closeChildTable</a></li>
+                <li><a href="ApiReference/Methods.html#met-changeColumnVisibility">changeColumnVisibility</a></li>
+                <li><a href="ApiReference/Methods.html#met-deleteRecord">deleteRecord</a></li>
+                <li><a href="ApiReference/Methods.html#met-deleteRows">deleteRows</a></li>
+                <li><a href="ApiReference/Methods.html#met-destroy">destroy</a></li>
+                <li><a href="ApiReference/Methods.html#met-getChildRow">getChildRow</a></li>
+                <li><a href="ApiReference/Methods.html#met-getRowByKey">getRowByKey</a></li>
+                <li><a href="ApiReference/Methods.html#met-isChildRowOpen">isChildRowOpen</a></li>
+                <li><a href="ApiReference/Methods.html#met-load">load</a></li>
+                <li><a href="ApiReference/Methods.html#met-openChildRow">openChildRow</a></li>
+                <li><a href="ApiReference/Methods.html#met-openChildTable">openChildTable</a></li>
+                <li><a href="ApiReference/Methods.html#met-reload">reload</a></li>
+                <li><a href="ApiReference/Methods.html#met-selectedRows">selectedRows</a></li>
+                <li><a href="ApiReference/Methods.html#met-selectRows">selectRows</a></li>
+                <li><a href="ApiReference/Methods.html#met-showCreateForm">showCreateForm</a></li>
+                <li><a href="ApiReference/Methods.html#met-updateRecord">updateRecord</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="ApiReference/Events.html">Events</a>
+            <ul>
+                <li><a href="ApiReference/Events.html#event-closeRequested">closeRequested</a></li>
+                <li><a href="ApiReference/Events.html#event-formClosed">formClosed</a></li>
+                <li><a href="ApiReference/Events.html#event-formCreated">formCreated</a></li>
+                <li><a href="ApiReference/Events.html#event-formSubmitting">formSubmitting</a></li>
+                <li><a href="ApiReference/Events.html#event-loadingRecords">loadingRecords</a></li>
+                <li><a href="ApiReference/Events.html#event-recordAdded">recordAdded</a></li>
+                <li><a href="ApiReference/Events.html#event-recordDeleted">recordDeleted</a></li>
+                <li><a href="ApiReference/Events.html#event-recordsLoaded">recordsLoaded</a></li>
+                <li><a href="ApiReference/Events.html#event-recordUpdated">recordUpdated</a></li>
+                <li><a href="ApiReference/Events.html#event-rowInserted">rowInserted</a></li>
+                <li><a href="ApiReference/Events.html#event-rowsRemoved">rowsRemoved</a></li>
+                <li><a href="ApiReference/Events.html#event-rowUpdated">rowUpdated</a></li>
+                <li><a href="ApiReference/Events.html#event-selectionChanged">selectionChanged</a></li>
+            </ul>
+        </li>
+        <li><a href="ApiReference/Localization.html">Localization</a></li>
+    </ul>
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - API Reference</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                <h2>jTable API Reference - Events</h2>
+<ul>
+    <li><a href="Events.html#event-closeRequested">closeRequested</a></li>
+    <li><a href="Events.html#event-formClosed">formClosed</a></li>
+    <li><a href="Events.html#event-formCreated">formCreated</a></li>
+    <li><a href="Events.html#event-formSubmitting">formSubmitting</a></li>
+    <li><a href="Events.html#event-loadingRecords">loadingRecords</a></li>
+    <li><a href="Events.html#event-recordAdded">recordAdded</a></li>
+    <li><a href="Events.html#event-recordDeleted">recordDeleted</a></li>
+    <li><a href="Events.html#event-recordsLoaded">recordsLoaded</a></li>
+    <li><a href="Events.html#event-recordUpdated">recordUpdated</a></li>
+    <li><a href="Events.html#event-rowInserted">rowInserted</a></li>
+    <li><a href="Events.html#event-rowsRemoved">rowsRemoved</a></li>
+    <li><a href="Events.html#event-rowUpdated">rowUpdated</a></li>
+    <li><a href="Events.html#event-selectionChanged">selectionChanged</a></li>
+</ul>
+
+<div class="api-option" id="event-closeRequested">
+    <div class="api-option-header">
+        <div><span class="option-name">closeRequested(event, data)</span></div>
+    </div>
+    <p> This event is raised when user clicks close button/icon of the table. Close button is shown if <a href="GeneralOptions.html#genopt-showCloseButton">showCloseButton</a> is set to true. This event has no argument.</p>
+</div>
+
+<div class="api-option" id="event-formClosed">
+    <div class="api-option-header">
+        <div><span class="option-name">formClosed(event, data)</span></div>
+    </div>
+    <p>This event is raised when an edit or create form dialog is closed. <strong>data</strong> argument has some fields:</p>
+    <ul>
+        <li><strong>data.form</strong>: Gets the form as jQuery selection.</li>
+        <li><strong>data.formType</strong>: Can be <strong>'edit' </strong>or <strong>'create'</strong> according to the form.</li>
+        <li><strong>data.row</strong>: Gets the edited row if the form is 'edit' form.</li>
+    </ul>
+</div>
+
+<div class="api-option" id="event-formCreated">
+    <div class="api-option-header">
+        <div><span class="option-name">formCreated(event, data)</span></div>
+    </div>
+    <p>This event is raised when an edit or create form is created for a record. <strong>data</strong> argument has some fields:</p>
+    <ul>
+        <li><strong>data.form</strong>: Gets the form as jQuery selection.</li>
+        <li><strong>data.formType</strong>: Can be <strong>'edit' </strong>or <strong>'create'</strong> according to the form.</li>
+        <li><strong>data.record</strong>: Gets the edited record if the form is 'edit' form (for example, you can get the name field of the editing record as data.record.Name).</li>
+        <li><strong>data.row</strong>: Gets the edited row if the form is 'edit' form.</li>
+    </ul>
+</div>
+
+<div class="api-option" id="event-formSubmitting">
+    <div class="api-option-header">
+        <div><span class="option-name">formSubmitting(event, data)</span></div>
+    </div>
+    <p> This event is raised when save/submit button is clicked for a create or edit form. <strong>data</strong> argument has some fields:</p>
+    <ul>
+        <li><strong>data.form</strong>: Gets the form as jQuery selection.</li>
+        <li><strong>data.formType</strong>: Can be <strong>'edit' </strong>or <strong>'create'</strong> according to the form.</li>
+        <li><strong>data.row</strong>: Gets the edited row if the form is 'edit' form.</li>
+    </ul>
+    <p>You can <strong>validate </strong>the form on this event. If you return <strong>false </strong>from this event callback,  submit operation is <strong>cancelled</strong>.</p>
+</div>
+
+<div class="api-option" id="event-loadingRecords">
+    <div class="api-option-header">
+        <div><span class="option-name">loadingRecords(event, data)</span></div>
+    </div>
+    <p> This event is raised just before AJAX request to load records from server. It has no arguments.</p>
+</div>
+
+<div class="api-option" id="event-recordAdded">
+    <div class="api-option-header">
+        <div><span class="option-name">recordAdded(event, data)</span></div>
+    </div>
+    <p>This event is raised when user successfully creates and saves a new record. You can get the added record using <strong>data.record</strong> argument. You can get the response JSON object returned from server as <strong>data.serverResponse</strong>.</p>
+</div>
+
+<div class="api-option" id="event-recordDeleted">
+    <div class="api-option-header">
+        <div><span class="option-name">recordDeleted(event, data)</span></div>
+    </div>
+    <p>This event is raised when user successfully deletes a record. You can get the deleted record using <strong>data.record</strong> argument. You can get the deleted table row by <strong>data.row</strong> argument. You can get the response JSON object returned from server as <strong>data.serverResponse</strong>. </p>
+</div>
+
+<div class="api-option" id="event-recordsLoaded">
+    <div class="api-option-header">
+        <div><span class="option-name">recordsLoaded(event, data)</span></div>
+    </div>
+    <p>This event is raised when jTable loads records from server and refreshes the table (If paging enabled, this event is also raised when user changes the current page). You can get all records loaded from server by <strong>data.records </strong>argument. You can get the response JSON object returned from server as <strong>data.serverResponse</strong>. </p>
+</div>
+
+<div class="api-option" id="event-recordUpdated">
+    <div class="api-option-header">
+        <div><span class="option-name">recordUpdated(event, data)</span></div>
+    </div>
+    <p>This event is raised when user successfully updates a record. You can get the updated record using <strong>data.record</strong> argument. You can get the updated table row by <strong>data.row</strong> argument. You can get the response JSON object returned from server as <strong>data.serverResponse</strong>. </p>
+</div>
+
+<div class="api-option" id="event-rowInserted">
+    <div class="api-option-header">
+        <div><span class="option-name">rowInserted(event, data)</span></div>
+    </div>
+    <p>This event is raised when a row is inserted to the shown table. A new row can be inserted either when user added a new record or records loaded from server. When records loaded from server, rowInserted event is called for each row. So, you can modify row or do whatever you need. You can get the row using <strong>data.row</strong>, you can get related record with <strong>data.record</strong>. Finally, if this is a new record (that's added by user) <strong>data.isNewRow</strong> is set to true by jTable.</p>
+</div>
+
+<div class="api-option" id="event-rowsRemoved">
+    <div class="api-option-header">
+        <div><span class="option-name">rowsRemoved(event, data)</span></div>
+    </div>
+    <p>This event is raised when either  user deletes row/rows (actual record deletion from server) or during re-loading records from server (all rows cleared but not deleted from server). You can get all removed rows by <strong>data.rows</strong> as jQuery selection. You can get remove reason by <strong>data.reason</strong> (can be 'deleted' or 'reloading').</p>
+</div>
+
+<div class="api-option" id="event-rowUpdated">
+    <div class="api-option-header">
+        <div><span class="option-name">rowUpdated(event, data)</span></div>
+    </div>
+    <p>This event is raised when a row updated. A row is  updated when user updates a record. You can get the updated row using <strong>data.row</strong>, you can get related record with <strong>data.record</strong>. This event is raised after recordUpdated.</p>
+</div>
+
+<div class="api-option" id="event-selectionChanged">
+    <div class="api-option-header">
+        <div><span class="option-name">selectionChanged(event, data)</span></div>
+    </div>
+    <p>This event is raised when selected rows on the table changes in anyway. It may change when user selects/deselects a row, a selected row is deleted, page changed while some rows are selected... etc. You can get selected rows by selectedRows method.</p>
+</div>
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

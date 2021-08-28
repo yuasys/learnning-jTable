@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - API Reference</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                <h2>jTable API Reference - Methods</h2>
+<ul>
+    <li><a href="Methods.html#met-addRecord">addRecord</a></li>
+    <li><a href="Methods.html#met-closeChildRow">closeChildRow</a></li>
+    <li><a href="Methods.html#met-closeChildTable">closeChildTable</a></li>
+    <li><a href="Methods.html#met-changeColumnVisibility">changeColumnVisibility</a></li>
+    <li><a href="Methods.html#met-deleteRecord">deleteRecord</a></li>
+    <li><a href="Methods.html#met-deleteRows">deleteRows</a></li>
+    <li><a href="Methods.html#met-destroy">destroy</a></li>
+    <li><a href="Methods.html#met-getChildRow">getChildRow</a></li>
+    <li><a href="Methods.html#met-getRowByKey">getRowByKey</a></li>
+    <li><a href="Methods.html#met-isChildRowOpen">isChildRowOpen</a></li>
+    <li><a href="Methods.html#met-load">load</a></li>
+    <li><a href="Methods.html#met-openChildRow">openChildRow</a></li>
+    <li><a href="Methods.html#met-openChildTable">openChildTable</a></li>
+    <li><a href="Methods.html#met-reload">reload</a></li>
+    <li><a href="Methods.html#met-selectedRows">selectedRows</a></li>
+    <li><a href="Methods.html#met-selectRows">selectRows</a></li>
+    <li><a href="Methods.html#met-showCreateForm">showCreateForm</a></li>
+    <li><a href="Methods.html#met-updateRecord">updateRecord</a></li>
+</ul>
+
+<div class="api-option" id="met-addRecord">
+    <div class="api-option-header">
+        <div><span class="option-name">addRecord(options)</span></div>
+    </div>
+    <p>This method is used to add a new record to the table programmatically. Parameters are:</p>
+    <ul>
+        <li><strong>record</strong>: The record object that will be added to the table. This option is required.</li>
+        <li><strong>clientOnly </strong>(boolean, default: false): If this is true, jTable does not add record to the server, only adds to the  table.</li>
+        <li><strong>animationsEnabled </strong>(boolean, default: behaviour of the table (it's true as default)): If this is false, no animation is shown while creating a new record on the table.</li>
+        <li><strong>url</strong> (string, default: createAction of the table): You can supply different URL to create the new record on the server.</li>
+        <li><strong>success </strong>(function, default: none): A callback function that can be used to be notified when record is successfully added to the table.</li>
+        <li><strong>error </strong>(function, default: none): A callback function that can be used to be notified if any error occurs during adding of the new record.</li>
+    </ul>
+    <p>Here, the simplest usage of addRecord method:</p>
+<pre class="brush:js">$(&#39;#StudentTableContainer&#39;).jtable(&#39;addRecord&#39;, {
+	record: {
+		Name: &#39;Halil ibrahim Kalkan&#39;,
+		EmailAddress: &#39;halil@jtable.org&#39;,
+		Password: &#39;123&#39;,
+		Gender: &#39;M&#39;,
+		CityId: 4,
+		BirthDate: &#39;2002-11-18&#39;,
+		Education: &#39;2&#39;,
+		About: &#39;adding test record&#39;,
+		IsActive: true,
+		RecordDate: &#39;2011-11-12&#39;
+	}
+});</pre>
+</div>
+
+<div class="api-option" id="met-closeChildRow">
+    <div class="api-option-header">
+        <div><span class="option-name">closeChildRow(row)</span></div>
+    </div>
+    <p>This method is used to close an open child row for a table row.  See openChildRow method. (This method is internally used by jTable to close child tables.)</p>
+</div>
+
+<div class="api-option" id="met-closeChildTable">
+    <div class="api-option-header">
+        <div><span class="option-name">closeChildTable(row, closed)</span></div>
+    </div>
+    <p>This method is used to close an open child table for a table row. <strong>row</strong> is a jQuery row object on the table. <strong>closed</strong> is a callback function that is called when child table is closed. See openChildTable method.</p>
+</div>
+
+<div class="api-option" id="met-changeColumnVisibility">
+    <div class="api-option-header">
+        <div><span class="option-name">changeColumnVisibility(columnName, visibility)</span></div>
+    </div>
+    <p>This method is used to change visibility property of a column. Values can be <strong>fixed</strong> (column is shown always), <strong>visible</strong> (column is shown as default) and <strong>hidden</strong> (column is hidden as default). See field <a href="FieldOptions.html#fopt-visibility">visibility</a> option.</p>
+</div>
+
+<div class="api-option" id="met-deleteRecord">
+    <div class="api-option-header">
+        <div><span class="option-name">deleteRecord(options)</span></div>
+    </div>
+    <p>This method is used to delete an existing record from the table programmatically. Parameters are:</p>
+    <ul>
+        <li><strong>key</strong>: The key (Id) of the record to update. This option is required.</li>
+        <li><strong>clientOnly </strong>(boolean, default: false): If this is true, jTable does not delete record from the server, only deletes from the  table.</li>
+        <li><strong>animationsEnabled </strong>(boolean, default: behaviour of the table (it's true as default)): If this is false, no animation is shown while deleting the record from the table.</li>
+        <li><strong>url</strong> (string, default: deleteAction of the table): You can supply different URL to delete the record on the server.</li>
+        <li><strong>success </strong>(function, default: none): A callback function that can be used to be notified when record is successfully deleted.</li>
+        <li><strong>error </strong>(function, default: none): A callback function that can be used to be notified if any error occurs during deleting of the record.</li>
+    </ul>
+    <p>Here, the simplest usage of deleteRecord method:</p>
+<pre class="brush: js">$(&#39;#StudentTableContainer&#39;).jtable(&#39;deleteRecord&#39;, {
+	key: 42
+});</pre>
+</div>
+
+<div class="api-option" id="met-deleteRows">
+    <div class="api-option-header">
+        <div><span class="option-name">deleteRows(rows)</span></div>
+    </div>
+    <p>Deletes given rows from server and table. <strong>rows </strong>parameter must be a jQuery selection. This method can be combined with <strong>selectedRows </strong>method. Thus, you can get selected rows and pass to deleteRows method to delete them.</p>
+</div>
+
+<div class="api-option" id="met-destroy">
+    <div class="api-option-header">
+        <div><span class="option-name">destroy()</span></div>
+    </div>
+    <p>Compeletely removes table from it's container.</p>
+</div>
+
+<div class="api-option" id="met-getChildRow">
+    <div class="api-option-header">
+        <div><span class="option-name">getChildRow(row)</span></div>
+    </div>
+    <p>This method is used to get child row for a table row. Thus, you can add content to the child row. See openChildRow method.</p>
+</div>
+
+<div class="api-option" id="met-getRowByKey">
+    <div class="api-option-header">
+        <div><span class="option-name">getRowByKey(key)</span></div>
+    </div>
+    <p>This method is used to get related row (jQuery selection) of a record by key field's value of the record.</p>
+</div>
+
+<div class="api-option" id="met-isChildRowOpen">
+    <div class="api-option-header">
+        <div><span class="option-name">isChildRowOpen(row)</span></div>
+    </div>
+    <p>This method returns true if child row is open for specified row. See openChildRow method.</p>
+</div>
+
+<div class="api-option" id="met-load">
+    <div class="api-option-header">
+        <div><span class="option-name">load(postData, completeCallback)</span></div>
+    </div>
+    <p>Loads records from the server. All parameters are optional. If you want to pass some parameters to the server, you can pass them in the <strong>postData</strong> parameter while calling the load method, like this:</p>
+<pre class="brush:js">$(&#39;#PersonTable&#39;).jtable(&#39;load&#39;, { CityId: 2, Name: &#39;Halil&#39; });</pre>
+    <p> You can get people who are living in city 2 and whose name is Halil like shown above. Surely, you must handle these parameters in the server side. Also, you can pass a callback method as <strong>completeCallback</strong>, that is called when loading of data is successfully completed. </p>
+</div>
+
+<div class="api-option" id="met-openChildRow">
+    <div class="api-option-header">
+        <div><span class="option-name">openChildRow(row)</span></div>
+    </div>
+    <p>This method is used to open child row for a table row. Child rows generally used to show child tables. If you want to show child tables, you don't need to use this method, use openChildTable method instead. If you want to open a custom child row, use this method. It returns the opened child row. Thus, you can fill it with a custom content. A child row is related to a specific data row in the table (which is passed as <strong>row</strong> agrument). If the data row is removed from table, it's child is also automatically removed.</p>
+</div>
+
+<div class="api-option" id="met-openChildTable">
+    <div class="api-option-header">
+        <div><span class="option-name">openChildTable(row, tableOptions, opened)</span></div>
+    </div>
+    <p>This method is used to create and open a child <span class="option-name">table for a data row (See demos page).</span> <strong>row </strong>argument is a data row on the table, <strong>tableOptions </strong>are standard jTable options that is used to initialize child table. <strong>opened</strong> is a callback that is called by jTable when the child table is shown (After opening animation is finished).</p>
+    <p>If you define the <b>opened</b> callback, you can get a reference to the container of opened child table. Thus, you can call methods of new jTable instance by this reference. For example, if your opened callback is defined as <b>function(data){ ... }</b> then you can get child table container as <b>data.childTable</b> and you can call any jTable method as data.childTable.reload();</p>
+
+    <div class="expandable-area">
+        <span class="expandable-header">Click here to see a sample usage.</span>
+        <div class="expandable-content">
+<pre class="brush:js">Phones: {
+    title: &#39;&#39;,
+    width: &#39;5%&#39;,
+    sorting: false,
+    edit: false,
+    create: false,
+    listClass: &#39;child-opener-image-column&#39;,
+    display: function (personData) {
+        //Create an image that will be used to open child table
+        var $img = $(&#39;&lt;img class=&quot;child-opener-image&quot; src=&quot;/Content/images/Misc/phone.png&quot; title=&quot;Edit phone numbers&quot; /&gt;&#39;);
+        //Open child table when user clicks the image
+        $img.click(function () {
+            $(&#39;#PersonTable&#39;).jtable(&#39;openChildTable&#39;,
+                    $img.closest(&#39;tr&#39;),
+                    {
+                        title: personData.record.Name + &#39; - Phone numbers&#39;,
+                        actions: {
+                            listAction: &#39;/PagingPerson/PhoneList?PersonId=&#39; + personData.record.PersonId,
+                            deleteAction: &#39;/PagingPerson/DeletePhone&#39;,
+                            updateAction: &#39;/PagingPerson/UpdatePhone&#39;,
+                            createAction: &#39;/PagingPerson/CreatePhone?PersonId=&#39; + personData.record.PersonId
+                        },
+                        fields: {
+                            PhoneId: {
+                                key: true,
+                                create: false,
+                                edit: false,
+                                list: false
+                            },
+                            PhoneType: {
+                                title: &#39;Phone type&#39;,
+                                width: &#39;30%&#39;,
+                                options: { &#39;1&#39;: &#39;Home phone&#39;, &#39;2&#39;: &#39;Office phone&#39;, &#39;3&#39;: &#39;Cell phone&#39; }
+                            },
+                            Number: {
+                                title: &#39;Phone Number&#39;,
+                                width: &#39;30%&#39;
+                            },
+                            RecordDate: {
+                                title: &#39;Record date&#39;,
+                                width: &#39;20%&#39;,
+                                type: &#39;date&#39;,
+                                displayFormat: &#39;dd.mm.yy&#39;,
+                                create: false,
+                                edit: false
+                            }
+                        }
+                    }, function (data) { //opened handler
+                        data.childTable.jtable(&#39;load&#39;);
+                    });
+        });
+        //Return image to show on the person row
+        return $img;
+    }</pre>
+            <p>Here, we are creating a custom column using <strong>display</strong> function of jTable. In the column, we are creating an image. When user clicks this image, we are opening a new child table. We are getting container row of the image with <strong><span class="hl">$img<span class="hl opt">.</span><span class="hl kwd">closest</span><span class="hl opt">(</span><span class="hl str">'tr'</span><span class="hl opt">)</span></span></strong> and passing it to openChildTable method. We are using standard jTable options as second argument. Finally, we are passing a function to load table data after child table is completely opened.</p>
+        </div>
+    </div>
+</div>
+
+<div class="api-option" id="met-reload">
+    <div class="api-option-header">
+        <div><span class="option-name">reload(completeCallback)</span></div>
+    </div>
+    <p>Re-loads records from server with last <strong>postData</strong>. This method can be used to <strong>refresh table </strong>data from server since it does not change <strong>current page</strong>, <strong>sorting </strong>and uses last <strong>postData </strong>(on <strong>load</strong> call). Also, you can pass a callback method as <strong>completeCallback</strong>, that is called when loading of data is successfully completed. </p>
+</div>
+
+<div class="api-option" id="met-selectedRows">
+    <div class="api-option-header">
+        <div><span class="option-name">selectedRows()</span></div>
+    </div>
+    <p>Gets all selected rows on the table as jQuery selection. See the sample below:</p>
+<pre class="brush:js">var $selectedRows = $(&#39;#PersonTable&#39;).jtable(&#39;selectedRows&#39;);
+$selectedRows.each(function () {
+    var record = $(this).data(&#39;record&#39;);
+    var personId = record.PersonId;
+    var name = record.Name;
+});</pre>
+    <p>Here, we get all selected rows, then iterate over rows and get the record related to the row, then get some fields of the record (See demos for more).</p>
+</div>
+
+<div class="api-option" id="met-selectRows">
+    <div class="api-option-header">
+        <div><span class="option-name">selectRows(rows)</span></div>
+    </div>
+    <p>This method is used to select one or more rows on the table. rows parameter must be a jQuery selection.</p>
+</div>
+
+
+<div class="api-option" id="met-showCreateForm">
+    <div class="api-option-header">
+        <div><span class="option-name">showCreateForm()</span></div>
+    </div>
+    <p>Can be used to programmatically open a 'create new record' form dialog.</p>
+</div>
+
+<div class="api-option" id="met-updateRecord">
+    <div class="api-option-header">
+        <div><span class="option-name">updateRecord(options)</span></div>
+    </div>
+    <p>This method is used to update an existing record on the table programmatically. Parameters are:</p>
+    <ul>
+        <li><strong>record</strong>: The record object that will be updated. record's key value must match a value on the table. Otherwise, no record is updated. This option is required.</li>
+        <li><strong>clientOnly </strong>(boolean, default: false): If this is true, jTable does not update record on the server, only updates on the  table.</li>
+        <li><strong>animationsEnabled </strong>(boolean, default: behaviour of the table (it's true as default)): If this is false, no animation is shown while updating the record on the table.</li>
+        <li><strong>url</strong> (string, default: updateAction of the table): You can supply different URL to update the record on the server.</li>
+        <li><strong>success </strong>(function, default: none): A callback function that can be used to be notified when record is successfully updated.</li>
+        <li><strong>error </strong>(function, default: none): A callback function that can be used to be notified if any error occurs during updating of the record.</li>
+    </ul>
+    <p>Here, the simplest usage of updateRecord method:</p>
+<pre class="brush:js">$(&#39;#StudentTableContainer&#39;).jtable(&#39;updateRecord&#39;, {
+	record: {
+		StudentId: 42,
+		Name: &#39;Halil Kalkan&#39;,
+		EmailAddress: &#39;halil@jtable.org&#39;,
+		Password: &#39;123456&#39;,
+		Gender: &#39;M&#39;,
+		CityId: 4,
+		BirthDate: &#39;2001-11-18&#39;,
+		Education: &#39;3&#39;,
+		About: &#39;updated this record&#39;,
+		IsActive: true,
+		RecordDate: &#39;2012-01-05&#39;
+	}
+});</pre>
+</div>
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

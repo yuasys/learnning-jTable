@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - Using with ASP.NET Web Forms</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                <h2>Using jTable with ASP.NET Web Forms</h2>
+<ul>
+  <li><a href="UsingWithAspNetWebFormsPageMethods.html#tIntro">Introduction</a></li>
+  <li><a href="UsingWithAspNetWebFormsPageMethods.html#CreatePage">Creating ASPX page</a></li>
+  <li><a href="UsingWithAspNetWebFormsPageMethods.html#CreateHtml">Client side (HTML and JavaScript)</a></li>
+  <li><a href="UsingWithAspNetWebFormsPageMethods.html#ServerSide">Server side (ASP.NET code behind)</a>
+<ul>
+      <li><a href="UsingWithAspNetWebFormsPageMethods.html#Record">Student and City record</a></li>
+      <li><a href="UsingWithAspNetWebFormsPageMethods.html#GettingList">Getting list from server</a></li>
+      <li><a href="UsingWithAspNetWebFormsPageMethods.html#GetCityOpts">Getting City options</a></li>
+      <li><a href="UsingWithAspNetWebFormsPageMethods.html#DeleteRecord">Deleting a record</a></li>
+      <li><a href="UsingWithAspNetWebFormsPageMethods.html#CreateRecord">Creating a new record</a></li>
+      <li><a href="UsingWithAspNetWebFormsPageMethods.html#UpdateRecord">Updating a record</a></li>
+    </ul>
+  </li>
+  <li><a href="UsingWithAspNetWebFormsPageMethods.html#Summary">Summary</a></li>
+  <li><a href="UsingWithAspNetWebFormsPageMethods.html#Download">Download</a></li>
+</ul>
+<h3 id="tIntro">Introduction</h3>
+<p>In this tutorial, I'll show how to use jTable with <strong>ASP.NET</strong> Web Forms. First, see  completed jTable instance that will be developed:</p>
+
+<div id="StudentTableContainer"></div>
+
+<p>I you haven't tried yet, please try to add a new record, to delete a record, to edit a record, to change current page and to sort the table by clicking column headers.</p>
+<h3 id="CreatePage">Creating ASPX page</h3>
+<p>Create a new ASP.NET web application project, <a href="../Home/Downloads.html">download jTable</a> and add all files to your project. Then create a new <strong>web form</strong> (say PagingAndSorting.aspx).</p>
+<p>To be able to use jTable, we must include needed <strong>CSS</strong> and <strong>JavaScript</strong> files to our page as shown below:</p>
+<pre class="brush:html">&lt;!-- jTable style file --&gt;
+&lt;link href=&quot;/Scripts/jtable/themes/standard/blue/jtable_blue.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+
+&lt;!-- A helper library for JSON serialization --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/Scripts/jtable/external/json2.js&quot;&gt;&lt;/script&gt;
+&lt;!-- Core jTable script file --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/Scripts/jtable/jquery.jtable.js&quot;&gt;&lt;/script&gt;
+&lt;!-- ASP.NET Web Forms extension for jTable --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/Scripts/jtable/extensions/jquery.jtable.aspnetpagemethods.js&quot;&gt;&lt;/script&gt;</pre>
+<p>We are adding two extra script files: <strong>json2.js</strong> is for JSON serialization, <strong>jquery.jtable.aspnetpagemethods.js</strong> is for using jTable with ASP.NET <strong>Page Methods</strong>. Script files must be included in the order above.</p>
+<h3 id="CreateHtml">Client side (HTML and JavaScript)</h3>
+<p>HTML codes for jTable is very simple, just a <strong>div</strong> tag:</p>
+<pre class="brush:html">&lt;div id=&quot;StudentTableContainer&quot;&gt;&lt;/div&gt;</pre>
+<p>jTable creates all table, forms and other stuffs. Let's see all <strong>JavaScript</strong> codes needed:</p>
+<pre class="brush:js">&lt;script type=&quot;text/javascript&quot;&gt;
+
+    $(document).ready(function () {
+
+        //Prepare jtable plugin
+        $(&#39;#StudentTableContainer&#39;).jtable({
+            title: &#39;The Student List&#39;,
+            paging: true, //Enables paging
+            pageSize: 10, //Actually this is not needed since default value is 10.
+            sorting: true, //Enables sorting
+            defaultSorting: &#39;Name ASC&#39;, //Optional. Default sorting on first load.
+            actions: {
+                listAction: &#39;/PagingAndSorting.aspx/StudentList&#39;,
+                createAction: &#39;/PagingAndSorting.aspx/CreateStudent&#39;,
+                updateAction: &#39;/PagingAndSorting.aspx/UpdateStudent&#39;,
+                deleteAction: &#39;/PagingAndSorting.aspx/DeleteStudent&#39;
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: &#39;Name&#39;,
+                    width: &#39;23%&#39;
+                },
+                EmailAddress: {
+                    title: &#39;Email address&#39;,
+                    list: false
+                },
+                Password: {
+                    title: &#39;User Password&#39;,
+                    type: &#39;password&#39;,
+                    list: false
+                },
+                Gender: {
+                    title: &#39;Gender&#39;,
+                    width: &#39;13%&#39;,
+                    options: { &#39;M&#39;: &#39;Male&#39;, &#39;F&#39;: &#39;Female&#39; }
+                },
+                CityId: {
+                    title: &#39;City&#39;,
+                    width: &#39;12%&#39;,
+                    options: &#39;/PagingAndSorting.aspx/GetCityOptions&#39;
+                },
+                BirthDate: {
+                    title: &#39;Birth date&#39;,
+                    width: &#39;15%&#39;,
+                    type: &#39;date&#39;,
+                    displayFormat: &#39;yy-mm-dd&#39;
+                },
+                Education: {
+                    title: &#39;Education&#39;,
+                    list: false,
+                    type: &#39;radiobutton&#39;,
+                    options: { &#39;1&#39;: &#39;Primary school&#39;, &#39;2&#39;: &#39;High school&#39;, &#39;3&#39;: &#39;University&#39; }
+                },
+                About: {
+                    title: &#39;About this person&#39;,
+                    type: &#39;textarea&#39;,
+                    list: false
+                },
+                IsActive: {
+                    title: &#39;Status&#39;,
+                    width: &#39;12%&#39;,
+                    type: &#39;checkbox&#39;,
+                    values: { &#39;false&#39;: &#39;Passive&#39;, &#39;true&#39;: &#39;Active&#39; },
+                    defaultValue: &#39;true&#39;
+                },
+                RecordDate: {
+                    title: &#39;Record date&#39;,
+                    width: &#39;15%&#39;,
+                    type: &#39;date&#39;,
+                    displayFormat: &#39;dd.mm.yy&#39;,
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            }
+        });
+
+        //Load student list from server
+        $(&#39;#StudentTableContainer&#39;).jtable(&#39;load&#39;);
+    });
+
+&lt;/script&gt;
+</pre>
+<p>We first initialized jTable and called <strong>load </strong>method. You can see all options, events and methods on reference documentation.</p>
+<h3 id="ServerSide">Server side (ASP.NET code behind)</h3>
+<h4 id="Record">Student record</h4>
+<p>A <strong>record</strong> in the <strong>table</strong> above is represented by a <strong>Student</strong> object in the server side. Student class is defined as below:</p>
+<pre class="brush:csharp">public class Student
+{
+    public int StudentId { get; set; }
+
+    public int CityId { get; set; }
+
+    public string Name { get; set; }
+
+    public string EmailAddress { get; set; }
+
+    public string Password { get; set; }
+
+    // "M" for mail, "F" for female.
+    public string Gender { get; set; }
+
+    public DateTime BirthDate { get; set; }
+
+    public string About { get; set; }
+
+    // 0: Unselected, 1: Primary school, 2: High school 3: University
+    public int Education { get; set; }
+
+    //true: Active, false: Passive
+    public bool IsActive { get; set; }
+
+    public DateTime RecordDate { get; set; }
+
+    public Student()
+    {
+        RecordDate = DateTime.Now;
+        Password = "123";
+        About = "";
+    }
+}</pre>
+<p id="GettingList">A student lives in a city (Joined on CityId field). City is a simple class:</p>
+<pre class="brush:csharp">public class City
+{
+    public int CityId { get; set; }
+
+    [Required]
+    public string CityName { get; set; }
+}</pre>
+<p>It's not needed to define such a class, but I defined it to be more object-oriented. We will use it to get city options while editing/creating/listing students.</p>
+<h4>Getting list from server</h4>
+<p>jTable calls <strong>listAction</strong> (defined in jTable initialization options) using AJAX to load records in the table when you call <strong>load</strong> method. In the sample, we defined listAction as '<strong>/PagingAndSorting.aspx/StudentList</strong>'. This is a Page method defined in PagingAndSorting.aspx as shown below:</p>
+<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object StudentList(int jtStartIndex, int jtPageSize, string jtSorting)
+{
+    try
+    {
+        //Get data from database
+        int studentCount = Repository.StudentRepository.GetStudentCount();
+        List&lt;Student&gt; students = Repository.StudentRepository.GetStudents(jtStartIndex, jtPageSize, jtSorting);
+
+        //Return result to jTable
+        return new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount };
+    }
+    catch (Exception ex)
+    {
+        return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+    }
+}</pre>
+<p>A <strong>Page method </strong>is a <strong>static </strong>method that is marked with <strong>WebMethod </strong>attribute (EnableSession is an optional parameter). A Page method can be called by Javascript using AJAX. It gets and returns JSON objects. In the sample above, StudentList method does not get any argument and returns an anonymous object. Return value is used by jTable to show records.</p>
+<p>In the sample, I used <strong>paging </strong>and <strong>sorting </strong>features of jTable. jTable sends paging and sorting parameters as parameters to the method (it also sends same values as query string arguments, so you can get as like HttpContext.Current.Request[&quot;jtStartIndex&quot;] also.). Return value of method must contain: a <strong>Result</strong> string (&quot;OK&quot; or &quot;ERROR&quot;), <strong>Records</strong> array/list (a list of student records here) and <strong>TotalRecordCount</strong> (used for paging). If you don't use paging or sorting, you can must remove appropriate method arguments.</p>
+<p>Note that Repositories here are classes to perform database operations. You can implement it in any technology (ADO.NET, Entity framework, NHibernate... etc.).</p>
+<h4 id="GetCityOpts">Getting City options</h4>
+<p>We defined a CityId field in the jTable initialization code. It has an <strong>option </strong>property that ensures to show a dropdown list in create/edit form. Value of this property was '<span class="brush:js"><strong>/PagingAndSorting.aspx/GetCityOptions</strong></span>'. jTable uses this url to get all cities. This is a Page method defined in PagingAndSorting.aspx as shown below:</p>
+<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object GetCityOptions()
+{
+    try
+    {
+        var cities = Repository.CityRepository.GetAllCities().Select(c => new { DisplayText = c.CityName, Value = c.CityId });
+        return new { Result = "OK", Options = cities };
+    }
+    catch (Exception ex)
+    {
+        return new { Result = "ERROR", Message = ex.Message };
+    }
+}</pre> 
+An option method must return Options property that contains an array of options. A member of this array can be any type of object which has <strong>DisplayText </strong>and <strong>Value</strong> properties.
+<h4 id="DeleteRecord">Deleting a record</h4>
+<p>jTable calls <strong>deleteAction</strong> (defined in jTable initialization options) using AJAX to delete a record in server, when user deletes a row on the table. In the sample, we defined deleteAction as '<strong>/PagingAndSorting.aspx/DeleteStudent</strong>'. This is a Page method defined in PagingAndSorting.aspx as shown below:</p>
+<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object DeleteStudent(int StudentId)
+{
+    try
+    {
+        Repository.StudentRepository.DeleteStudent(StudentId);
+        return new { Result = &quot;OK&quot; };
+    }
+    catch (Exception ex)
+    {
+        return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+    }
+}</pre>
+<p>As you've seen, it's a simple method which gets <strong>StudentId</strong> to delete. Notice that StudentId argument is <strong>case-sensitive</strong> and must match with jTable field name. So, if you use <strong>studentId</strong> as the parameter name, it won't work.</p>
+<h4 id="CreateRecord">Creating a new record</h4>
+<p>jTable calls <strong>createAction</strong> (defined in jTable initialization options) using AJAX to add a new record to server when user saves create new record form. In the sample, we defined createAction as '<strong>/PagingAndSorting.aspx/CreateStudent</strong>'. This is a Page method defined in PagingAndSorting.aspx as shown below:</p>
+<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object CreateStudent(Student record)
+{
+    try
+    {
+        var addedStudent = Repository.StudentRepository.AddStudent(record);
+        return new { Result = &quot;OK&quot;, Record = addedStudent };
+    }
+    catch (Exception ex)
+    {
+        return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+    }
+}</pre>
+<p>Creating method is also very straightforward. It must return <strong>new created object</strong> to jTable. Note that, since this is a new record, StudentId of Student object is not set (0 as default). But returning Student object to jTable must has a valid StudentId. So, you must get StudentId after inserting database. jTable will use this Id in next operations on the record (update and delete).</p>
+<p>Lastly, record parameter's name must be <strong>record</strong>. Otherwise, it does not work since jTable set it's name as record.</p>
+<h4 id="UpdateRecord">Updating a record</h4>
+<p>jTable calls <strong>updateAction</strong> (defined in jTable initialization options) using AJAX to update a record to server when user saves edit form for a record. In the sample, we defined updateAction as '<strong>/PagingAndSorting.aspx/UpdateStudent</strong>'. This is a Page method defined in PagingAndSorting.aspx as shown below:</p>
+<pre class="brush:csharp">[WebMethod(EnableSession = true)]
+public static object UpdateStudent(Student record)
+{
+    try
+    {
+        Repository.StudentRepository.UpdateStudent(record);
+        return new { Result = &quot;OK&quot; };
+    }
+    catch (Exception ex)
+    {
+        return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+    }
+}</pre>
+<h3 id="Summary">Summary</h3>
+<p>In this tutorial, we developed a jTable with <strong>paging</strong> and <strong>sorting</strong> features enabled using ASP.NET Web Forms Page methods in the server side. jTable has direct support for Page Methods of ASP.NET Web Forms. You can see <a href="../Demo.html">demos page</a> for other examples.</p>
+<h3 id="Download">Download</h3>
+<p>You can download codes from <a href="../Home/Downloads.html">download page</a>.</p>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#StudentTableContainer').jtable({
+            title: 'Student List',
+            paging: true,
+            pageSize: 10,
+            sorting: true,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '/Demo/StudentList',
+                deleteAction: '/Demo/DeleteStudent',
+                updateAction: '/Demo/UpdateStudent',
+                createAction: '/Demo/CreateStudent'
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: 'Name',
+                    width: '23%'
+                },
+                EmailAddress: {
+                    title: 'Email address',
+                    list: false
+                },
+                Password: {
+                    title: 'User Password',
+                    type: 'password',
+                    list: false
+                },
+                Gender: {
+                    title: 'Gender',
+                    width: '13%',
+                    options: { 'M': 'Male', 'F': 'Female' }
+                },
+                CityId: {
+                    title: 'City',
+                    width: '12%',
+                    options: '/Demo/GetCityOptions'
+                },
+                BirthDate: {
+                    title: 'Birth date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd'
+                },
+                Education: {
+                    title: 'Education',
+                    list: false,
+                    type: 'radiobutton',
+                    options: { '1': 'Primary school', '2': 'High school', '3': 'University' }
+                },
+                About: {
+                    title: 'About this person',
+                    type: 'textarea',
+                    list: false
+                },
+                IsActive: {
+                    title: 'Status',
+                    width: '12%',
+                    type: 'checkbox',
+                    values: { 'false': 'Passive', 'true': 'Active' },
+                    defaultValue: 'true'
+                },
+                RecordDate: {
+                    title: 'Record date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'dd.mm.yy',
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            }
+        });
+
+        //Load student list from server
+        $('#StudentTableContainer').jtable('load');
+    });
+
+</script>
+
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

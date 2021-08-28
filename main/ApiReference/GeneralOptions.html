@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - API Reference</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                <h2>jTable API Reference - General Options</h2>
+<ul>
+    <li><a href="GeneralOptions.html#genopt-addRecordButton">addRecordButton</a></li>
+    <li><a href="GeneralOptions.html#genopt-ajaxSettings">ajaxSettings</a></li>
+    <li><a href="GeneralOptions.html#genopt-animationsEnabled">animationsEnabled</a></li>
+    <li><a href="GeneralOptions.html#genopt-columnResizable">columnResizable</a></li>
+    <li><a href="GeneralOptions.html#genopt-columnSelectable">columnSelectable</a></li>
+    <li><a href="GeneralOptions.html#genopt-defaultDateFormat">defaultDateFormat</a></li>
+    <li><a href="GeneralOptions.html#genopt-defaultSorting">defaultSorting</a></li>
+    <li><a href="GeneralOptions.html#genopt-deleteConfirmation">deleteConfirmation</a></li>
+    <li><a href="GeneralOptions.html#genopt-dialogShowEffect">dialogShowEffect</a></li>
+    <li><a href="GeneralOptions.html#genopt-dialogHideEffect">dialogHideEffect</a></li>
+    <li><a href="GeneralOptions.html#genopt-gotoPageArea">gotoPageArea</a></li>
+    <li><a href="GeneralOptions.html#genopt-jqueryuiTheme">jqueryuiTheme</a></li>
+    <li><a href="GeneralOptions.html#genopt-loadingAnimationDelay">loadingAnimationDelay</a></li>
+    <li><a href="GeneralOptions.html#genopt-messages">messages</a></li>
+    <li><a href="GeneralOptions.html#genopt-multiselect">multiselect</a></li>
+    <li><a href="GeneralOptions.html#genopt-multiSorting">multiSorting</a></li>
+    <li><a href="GeneralOptions.html#genopt-openChildAsAccordion">openChildAsAccordion</a></li>
+    <li><a href="GeneralOptions.html#genopt-paging">paging</a></li>
+    <li><a href="GeneralOptions.html#genopt-pageList">pageList</a></li>
+    <li><a href="GeneralOptions.html#genopt-pageSize">pageSize</a></li>
+    <li><a href="GeneralOptions.html#genopt-pageSizes">pageSizes</a></li>
+    <li><a href="GeneralOptions.html#genopt-pageSizeChangeArea">pageSizeChangeArea</a></li>
+    <li><a href="GeneralOptions.html#genopt-saveUserPreferences">saveUserPreferences</a></li>
+    <li><a href="GeneralOptions.html#genopt-selecting">selecting</a></li>
+    <li><a href="GeneralOptions.html#genopt-selectingCheckboxes">selectingCheckboxes</a></li>
+    <li><a href="GeneralOptions.html#genopt-selectOnRowClick">selectOnRowClick</a></li>
+    <li><a href="GeneralOptions.html#genopt-showCloseButton">showCloseButton</a></li>
+    <li><a href="GeneralOptions.html#genopt-sorting">sorting</a></li>
+    <li><a href="GeneralOptions.html#genopt-tableId">tableId</a></li>
+    <li><a href="GeneralOptions.html#genopt-title">title</a></li>
+    <li><a href="GeneralOptions.html#genopt-toolbar">toolbar</a></li>
+    <li><a href="GeneralOptions.html#genopt-unAuthorizedRequestRedirectUrl">unAuthorizedRequestRedirectUrl</a></li>
+</ul>
+
+<h3>How to set general options</h3>
+<p>General options can be set either for an instance of jTable or for all jTable instances.</p>
+<p>Per instance options are set in jTable initialization code. For example, to disable column resizing option in an initialization code:</p>
+<pre class="brush:js">&lt;script type=&quot;text/javascript&quot;&gt;
+    $(document).ready(function () {        	
+       $(&#39;#MyTableContainer&#39;).jtable({
+            columnResizable: false; //disable column resizing
+            //other options...
+        });		
+    });
+&lt;/script&gt;</pre>
+<p>If you want to disable column resizing for all jTable instances, you can use such a code:</p>
+<pre class="brush:js">&lt;script type=&quot;text/javascript&quot; src=&quot;/Scripts/jtable/jquery.jtable.js&quot;&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $.hik.jtable.prototype.options.columnResizable = false;
+&lt;/script&gt;</pre>
+<p>If you want to set more than one option easier, you can extend jTable options:</p>
+<pre class="brush:js">&lt;script type=&quot;text/javascript&quot; src=&quot;/Scripts/jtable/jquery.jtable.js&quot;&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $.extend(true, $.hik.jtable.prototype.options, {
+        columnResizable: false,
+        animationsEnabled: false,
+        ajaxSettings: {
+            type: 'GET'
+        }
+    });
+&lt;/script&gt;</pre>
+<p>Notice that you can set default options just after importing jtable script file. Also, you can override this default setting in every jTable instance.</p>
+
+<h3>List of general options</h3>
+
+<div class="api-option" id="genopt-addRecordButton">
+    <div class="api-option-header">
+        <div><span class="option-name">addRecordButton</span></div>
+        <div><span class="option-type">jQuery object</span></div>
+        <div><span class="option-default">default: auto-generated link</span></div>
+    </div>
+    <p> A jQuery object that can be used instead of the '+ add new record' link. Thus you can set any element on the page to open the 'add new record' dialog.</p>
+</div>
+
+<div class="api-option" id="genopt-ajaxSettings">
+    <div class="api-option-header">
+        <div><span class="option-name">ajaxSettings</span></div>
+        <div><span class="option-type">object</span></div>
+        <div><span class="option-default"></span></div>
+    </div>
+    <p>An object that defines default options for all ajax requests performed by jTable. See jQuery's <a href="http://api.jquery.com/jQuery.ajax/">$.ajax</a> method for all available options.</p>
+    <p>Default value for this option is:</p>
+    <pre class="brush:js">ajaxSettings: {
+    type: 'POST',
+    dataType: 'json'
+}</pre>
+    <p>This option overrides default ajaxSetting by extending it. So, if you just want to change type, you can set this option as <strong>ajaxSettings: { type: 'GET' }</strong>.</p>
+</div>
+
+<div class="api-option" id="genopt-animationsEnabled">
+    <div class="api-option-header">
+        <div><span class="option-name">animationsEnabled</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>A boolean value indicates that whether jTable shows animations when user creates, updates or deletes a row.</p>
+</div>
+
+<div class="api-option" id="genopt-columnResizable">
+    <div class="api-option-header">
+        <div><span class="option-name">columnResizable</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>A boolean value indicates that whether jTable allows user to resize data columns by dragging.</p>
+</div>
+
+<div class="api-option" id="genopt-columnSelectable">
+    <div class="api-option-header">
+        <div><span class="option-name">columnSelectable</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>A boolean value indicates that whether jTable allows user to show/hide data columns by right clicking table header.</p>
+</div>
+
+<div class="api-option" id="genopt-defaultDateFormat">
+    <div class="api-option-header">
+        <div><span class="option-name">defaultDateFormat</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: 'yy-mm-dd'</span></div>
+    </div>
+    <p>Default format of a date field. See <a href="http://docs.jquery.com/UI/Datepicker/formatDate" target="_blank">jQueryUI datepicker formats</a>.</p>
+</div>
+
+<div class="api-option" id="genopt-defaultSorting">
+    <div class="api-option-header">
+        <div><span class="option-name">defaultSorting</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>Default sorting of table. It can be a field name of a column of the table. For instance, if you want table sorted by Name by default, defaultSorting can be 'Name <strong>ASC</strong>' or 'Name <strong>DESC</strong>'.</p>
+</div>
+
+<div class="api-option" id="genopt-deleteConfirmation">
+    <div class="api-option-header">
+        <div><span class="option-name">deleteConfirmation</span></div>
+        <div><span class="option-type">boolean or function</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p> This option can be a <strong>boolean</strong> value or a <strong>function</strong>. If it is a boolean value, that indicates whether a confirmation dialog is shown when user clicks delete button/icon for a record.</p>
+    <p>If this option is a function, It can fully control delete confirmation process. It must be a function as shown below.</p>
+<pre class="brush:js">deleteConfirmation: function(data) {
+    //...
+}</pre>
+    <p><strong>data </strong>argument has some properties to control confirmation process:</p>
+    <ul>
+        <li><strong>row</strong>: A jQuery selection for deleting row element.</li>
+        <li><strong>record</strong>: Actual deleting record. For example, you can get Name property of record as <em>data.record.Name</em>.</li>
+        <li><strong>cancel</strong>: You can set data.cancel to true to cancel delete process (default value is false).</li>
+        <li><strong>cancelMessage</strong>: If you cancelled delete process, you can show a message to user that explains cancellation reason. If you don't want to show any message, just don't set it.</li>
+        <li><strong>deleteConfirm</strong>: A boolean value indicates whether to show a delete confirmation message or not (default value is true).</li>
+        <li><strong>deleteConfirmMessage</strong>: If confirmation enabled, you can set a custom confirmation message.</li>
+    </ul>
+    <p>For example, if you want to show some additional information to user on delete confirmation, you can write a function like that:</p>
+<pre class="brush: js">deleteConfirmation: function(data) {
+    data.deleteConfirmMessage = &#39;Are you sure to delete person &#39; + data.record.Name + &#39;?&#39;;
+}</pre>
+</div>
+
+<div class="api-option" id="genopt-dialogShowEffect">
+    <div class="api-option-header">
+        <div><span class="option-name">dialogShowEffect</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: 'fade'</span></div>
+    </div>
+    <p>jQueryUI effect to be used while <strong>opening </strong>a jQueryUI dialog. Some options are 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide'... etc. See <a href="http://www.jqueryui.com/demos/effect" target="_blank">jQueryUI documentation</a> for all options.</p>
+</div>
+
+<div class="api-option" id="genopt-dialogHideEffect">
+    <div class="api-option-header">
+        <div><span class="option-name">dialogHideEffect</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: 'fade'</span></div>
+    </div>
+    <p>jQueryUI effect to be used while <strong>closing </strong>a jQueryUI dialog. Some options are 'blind', 'bounce', 'clip', 'drop', 'explode', 'fold', 'highlight', 'puff', 'pulsate', 'scale', 'shake', 'size', 'slide'... etc. See <a href="http://www.jqueryui.com/demos/effect" target="_blank">jQueryUI documentation</a> for all options.</p>
+</div>
+
+<div class="api-option" id="genopt-gotoPageArea">
+    <div class="api-option-header">
+        <div><span class="option-name">gotoPageArea</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: 'combobox'</span></div>
+    </div>
+    <p>If paging enabled, this value can be used to determine how to show 'go to page' input. Possible values:</p>
+    <ul>
+        <li><strong>combobox</strong>: Show a combobox (that contains all pages) to allow user to go to desired page.</li>
+        <li><strong>textbox</strong>: Show a text box to allow user to go to desired page.</li>
+        <li><strong>none</strong>: Does not shows 'go to page' input.</li>
+    </ul>
+</div>
+
+<div class="api-option" id="genopt-jqueryuiTheme">
+    <div class="api-option-header">
+        <div><span class="option-name">jqueryuiTheme</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>
+        jTable has it's own themes those can be used easily. But, you may want to use color schema and styles of your jQueryUI as jTable's theme. So, this option can be used
+        to declare jTable to use jQueryUI's colors and styles. To do it, set <strong>jqueryuiTheme: true</strong> in your jTable initialization code and include needed css files to your page as shown below:
+    </p>
+
+    <pre class="brush:html">&lt;!-- jQueryUI&#39;s css file --&gt;
+&lt;link href=&quot;/Scripts/jqueryUi/themes/redmond/jquery-ui-1.10.1.custom.min.css&quot;)&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;
+&lt;!-- jTable&#39;s jQueryUi css file --&gt;
+&lt;link href=&quot;/Scripts/jtable/themes/jqueryui/jtable_jqueryui.css&quot;)&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</pre>
+</div>
+
+<p>jQueryUI has a powerful theme system. You can create your own theme on <a target="_blank" href="http://jqueryui.com/themeroller/">http://jqueryui.com/themeroller/</a>.</p>
+
+<div class="api-option" id="genopt-loadingAnimationDelay">
+    <div class="api-option-header">
+        <div><span class="option-name">loadingAnimationDelay</span></div>
+        <div><span class="option-type">int</span></div>
+        <div><span class="option-default">default: 500</span></div>
+    </div>
+    <p>jTable delays 'loading...' animation for a while to allow ajax request to complete. If it does not complete in defined timeout, animation is shown. This option defines this timeout value (as milliseconds). To disable this feature, set 0 to loadingAnimationDelay option.</p>
+</div>
+
+<div class="api-option" id="genopt-messages">
+    <div class="api-option-header">
+        <div><span class="option-name">messages</span></div>
+        <div><span class="option-type">object</span></div>
+    </div>
+    <p>This option used to localize jTable. See <a href="Localization.html">localization</a>.</p>
+</div>
+
+<div class="api-option" id="genopt-multiselect">
+    <div class="api-option-header">
+        <div><span class="option-name">multiselect</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>Indicates that whether jTable allows user to select multiple rows at once.</p>
+</div>
+
+<div class="api-option" id="genopt-multiSorting">
+    <div class="api-option-header">
+        <div><span class="option-name">multiSorting</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>Indicates that whether jTable allows user to sort table according to multiple columns. If this option is set to true, User can perform multiple sorting by holding CTRL key.</p>
+    <p>If user selects multiple column for sorting, jTable sends column names seperated by comma as like '<em>Name DESC,BirthDay ASC</em>'. See <a href="Actions.html#act-listAction">listAction</a> for more information.</p>
+</div>
+
+<div class="api-option" id="genopt-openChildAsAccordion">
+    <div class="api-option-header">
+        <div><span class="option-name">openChildAsAccordion</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>If this options is set to true, jTable automatically closes other open child tables when a child table is opened (accordion style).</p>
+</div>
+
+<div class="api-option" id="genopt-paging">
+    <div class="api-option-header">
+        <div><span class="option-name">paging</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>Indicates that whether jTable uses paging or not. jTable sends additional parameters to server if paging is enabled. See <a href="Actions.html#act-listAction">listAction</a> for more information.</p>
+</div>
+
+<div class="api-option" id="genopt-pageList">
+    <div class="api-option-header">
+        <div><span class="option-name">pageList</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: 'normal'</span></div>
+    </div>
+    <p>This option is used to select page list type. Possible values:</p>
+    <ul>
+        <li><strong>minimal</strong>: Show only first, previous, next and last links.</li>
+        <li><strong>normal</strong>: Shows page numbers in addition to 'minimal'.</li>
+    </ul>
+</div>
+
+
+<div class="api-option" id="genopt-pageSize">
+    <div class="api-option-header">
+        <div><span class="option-name">pageSize</span></div>
+        <div><span class="option-type">number</span></div>
+        <div><span class="option-default">default: 10</span></div>
+    </div>
+    <p>If paging enabled, this value indicates number of rows in a page. pageSize option can be changed later as like below:</p>
+    <pre class="brush:js;">$('#MyTableContainer').jtable('option', 'pageSize', 20);</pre>
+</div>
+
+<div class="api-option" id="genopt-pageSizes">
+    <div class="api-option-header">
+        <div><span class="option-name">pageSizes</span></div>
+        <div><span class="option-type">array of numbers</span></div>
+        <div><span class="option-default">default: [10, 25, 50, 100, 250, 500]</span></div>
+    </div>
+    <p>If paging enabled, this option can be used to determine numbers in 'page size change combobox'. Default values are shown above. You can set an array of any numbers you want.</p>
+</div>
+
+<div class="api-option" id="genopt-pageSizeChangeArea">
+    <div class="api-option-header">
+        <div><span class="option-name">pageSizeChangeArea</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>If paging enabled, this value can be used to make 'page size change combobox' visible or not.</p>
+</div>
+
+<div class="api-option" id="genopt-saveUserPreferences">
+    <div class="api-option-header">
+        <div><span class="option-name">saveUserPreferences</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>Indicates that whether jTable saves/loads user preferences such as resized columns. Saving/restoring preferences are based on a hashed value that is generated using <a href="GeneralOptions.html#genopt-tableId">tableId</a>, all column names and total column count. So, changing columns will change the hash and user preferences are reset.</p>
+</div>
+
+<div class="api-option" id="genopt-selecting">
+    <div class="api-option-header">
+        <div><span class="option-name">selecting</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>Indicates that whether jTable allows user to select rows on the table.</p>
+</div>
+
+<div class="api-option" id="genopt-selectingCheckboxes">
+    <div class="api-option-header">
+        <div><span class="option-name">selectingCheckboxes</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>Indicates that whether jTable shows checkbox column for selecting.</p>
+</div>
+
+<div class="api-option" id="genopt-selectOnRowClick">
+    <div class="api-option-header">
+        <div><span class="option-name">selectOnRowClick</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: true</span></div>
+    </div>
+    <p>
+        Indicates that whether jTable allows user to select a row by clicking anywhere on the row.
+        This can be set as false to allow user selecting a row only by clicking to the checkbox (see selectingCheckboxes option).
+    </p>
+</div>
+
+<div class="api-option" id="genopt-showCloseButton">
+    <div class="api-option-header">
+        <div><span class="option-name">showCloseButton</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>Indicates that whether jTable will show a close button/icon for the table. When user clicks the close button, closeRequested event is raised. This option is used internally by jTable to close child tables.</p>
+</div>
+
+<div class="api-option" id="genopt-sorting">
+    <div class="api-option-header">
+        <div><span class="option-name">sorting</span></div>
+        <div><span class="option-type">boolean</span></div>
+        <div><span class="option-default">default: false</span></div>
+    </div>
+    <p>Indicates that whether jTable will sort the table or not.</p>
+</div>
+
+<div class="api-option" id="genopt-tableId">
+    <div class="api-option-header">
+        <div><span class="option-name">tableId</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>
+        A string that is a unique identifier for this table. This value is used on saving/restoring user preferences.
+        If this is set, it's set to table's (the table tag's) id property. This setting is optional.
+    </p>
+</div>
+
+
+<div class="api-option" id="genopt-title">
+    <div class="api-option-header">
+        <div><span class="option-name">title</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>A string that is shown on top of the table. This is optional, if you don't supply the title option, title area is not displayed at all.</p>
+</div>
+
+<div class="api-option" id="genopt-toolbar">
+    <div class="api-option-header">
+        <div><span class="option-name">toolbar</span></div>
+        <div><span class="option-type">object</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>This option is used to control jTable toolbar and it's items. By default, only item in toolbar is 'Add new record' item (it's added by jTable if you define <a href="Actions.html#act-createAction">createAction</a>). Using this option, you can add custom items.</p>
+    <p>Default value of this option is shown below:</p>
+    <pre class="brush:js">toolbar: {
+	hoverAnimation: true, //Enable/disable small animation on mouse hover to a toolbar item.
+	hoverAnimationDuration: 60, //Duration of the hover animation.
+	hoverAnimationEasing: undefined, //Easing of the hover animation. Uses jQuery's default animation ('swing') if set to undefined.
+	items: [] //Array of your custom toolbar items.
+}</pre>
+    <p>Here a sample definition that adds two custom item to toolbar:</p>
+    <pre class="brush:js">toolbar: {
+	items: [{
+		icon: '/images/excel.png',
+		text: 'Export to Excel',
+		click: function () {
+			//perform your custom job...
+		}
+	},{
+		icon: '/images/pdf.png',
+		text: 'Export to Pdf',
+		click: function () {
+			//perform your custom job...
+		}
+	}]
+},</pre>
+    <p><strong>icon</strong>, <strong>text</strong> and <strong>click</strong> are optional. But you must define 'icon' or 'text', otherwise jTable can not show the toolbar item. In the click function, you can write your custom javascript codes.</p>
+    <p>You can also use some additional options for each toolbar item:</p>
+    <ul>
+        <li><strong>cssClass</strong>: Used to add custom css classes to toolbar item.</li>
+        <li><strong>tooltip</strong>: Used to set a tool tip for this item. jTable sets HTML 'title' attribute.</li>
+    </ul>
+</div>
+
+<div class="api-option" id="genopt-unAuthorizedRequestRedirectUrl">
+    <div class="api-option-header">
+        <div><span class="option-name">unAuthorizedRequestRedirectUrl</span></div>
+        <div><span class="option-type">string</span></div>
+        <div><span class="option-default">default: none</span></div>
+    </div>
+    <p>
+        A URL to redirect the page when an ajax request to the server returns with <strong>UnAuthorizedRequest = true</strong> or HTTP status 401.
+        If this option is not set, jTable refresh the page when server returns UnAuthorizedRequest = true or HTTP status 401.
+    </p>
+</div>
+
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

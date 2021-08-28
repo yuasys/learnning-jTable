@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - Filtering Demo</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+    <style>
+        div.filtering
+        {
+            border: 1px solid #999;
+            margin-bottom: 5px;
+            padding: 10px;
+            background-color: #EEE;
+        }
+    </style>
+
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                
+
+
+<div class="filtering">
+    <form>
+        <label>Name: <input type="text" name="name" id="name" /></label>
+        <label>City: <select id="cityId" name="cityId"><option selected="selected" value="0">All cities</option>
+<option value="36">Adana</option>
+<option value="55">Amsterdam</option>
+<option value="34">Ankara</option>
+<option value="67">Athens</option>
+<option value="23">Bandung</option>
+<option value="7">Bangalore</option>
+<option value="51">Bangkok</option>
+<option value="44">Barcelona</option>
+<option value="11">Beijing</option>
+<option value="17">Berlin</option>
+<option value="61">Buenos Aires</option>
+<option value="69">Cairo</option>
+<option value="70">Cape Town</option>
+<option value="3">Chicago</option>
+<option value="62">C&#243;rdoba</option>
+<option value="16">Curitiba</option>
+<option value="6">Delhi</option>
+<option value="64">Donetsk</option>
+<option value="56">Eindhoven</option>
+<option value="32">Florence</option>
+<option value="20">Frankfurt</option>
+<option value="39">Glasgow</option>
+<option value="66">Gothenburg</option>
+<option value="9">Guangzhou</option>
+<option value="41">Hai Phong</option>
+<option value="18">Hamburg</option>
+<option value="42">Hanoi</option>
+<option value="4">Houston</option>
+<option value="8">Hyderabad</option>
+<option value="33">İstanbul</option>
+<option value="35">İzmir</option>
+<option value="21">Jakarta</option>
+<option value="46">Krak&#243;w</option>
+<option value="12">Kunming</option>
+<option value="63">Kyiv</option>
+<option value="59">Lisbon</option>
+<option value="40">Liverpool</option>
+<option value="37">London</option>
+<option value="2">Los Angeles</option>
+<option value="27">Lyon</option>
+<option value="43">Madrid</option>
+<option value="38">Manchester</option>
+<option value="58">Melbourne</option>
+<option value="49">Mexico City</option>
+<option value="30">Milano</option>
+<option value="48">Montreal</option>
+<option value="53">Moscow</option>
+<option value="5">Mumbai</option>
+<option value="19">Munich</option>
+<option value="1">New York</option>
+<option value="26">Nice</option>
+<option value="52">Nonthaburi</option>
+<option value="25">Paris</option>
+<option value="54">Petersburg</option>
+<option value="60">Porto</option>
+<option value="14">Rio de Janeiro</option>
+<option value="29">Rome</option>
+<option value="15">Salvador</option>
+<option value="13">S&#227;o Paulo</option>
+<option value="24">Semarang</option>
+<option value="10">Shanghai</option>
+<option value="65">Stockholm</option>
+<option value="22">Surabaya</option>
+<option value="57">Sydney</option>
+<option value="50">Tijuana</option>
+<option value="31">Torino</option>
+<option value="47">Toronto</option>
+<option value="28">Toulouse</option>
+<option value="68">Volos</option>
+<option value="45">Warsaw</option>
+</select></label>
+        <button type="submit" id="LoadRecordsButton">Load records</button>
+    </form>
+</div>
+
+<div id="StudentTableContainer"></div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#StudentTableContainer').jtable({
+            title: 'Student List',
+            paging: true,
+            pageSize: 10,
+            sorting: true,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '/Demo/StudentListByFiter',
+                deleteAction: '/Demo/DeleteStudent',
+                updateAction: '/Demo/UpdateStudent',
+                createAction: '/Demo/CreateStudent'
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: 'Name',
+                    width: '23%'
+                },
+                EmailAddress: {
+                    title: 'Email address',
+                    list: false
+                },
+                Password: {
+                    title: 'User Password',
+                    type: 'password',
+                    list: false
+                },
+                Gender: {
+                    title: 'Gender',
+                    width: '13%',
+                    options: { 'M': 'Male', 'F': 'Female' }
+                },
+                CityId: {
+                    title: 'City',
+                    width: '12%',
+                    options: '/Demo/GetCityOptions'
+                },
+                BirthDate: {
+                    title: 'Birth date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd'
+                },
+                Education: {
+                    title: 'Education',
+                    list: false,
+                    type: 'radiobutton',
+                    options: { '1': 'Primary school', '2': 'High school', '3': 'University' }
+                },
+                About: {
+                    title: 'About this person',
+                    type: 'textarea',
+                    list: false
+                },
+                IsActive: {
+                    title: 'Status',
+                    width: '12%',
+                    type: 'checkbox',
+                    values: { 'false': 'Passive', 'true': 'Active' },
+                    defaultValue: 'true'
+                },
+                RecordDate: {
+                    title: 'Record date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'dd.mm.yy',
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            }
+        });
+
+        //Re-load records when user click 'load records' button.
+        $('#LoadRecordsButton').click(function (e) {
+            e.preventDefault();
+            $('#StudentTableContainer').jtable('load', {
+                name: $('#name').val(),
+                cityId: $('#cityId').val()
+            });
+        });
+
+        //Load all records when page is first shown
+        $('#LoadRecordsButton').click();
+    });
+
+</script>
+<br />
+<hr />
+<h3>
+    HTML code</h3>
+<pre class="brush:html">&lt;div class=&quot;filtering&quot;&gt;
+    &lt;form&gt;
+        Name: &lt;input type=&quot;text&quot; name=&quot;name&quot; id=&quot;name&quot; /&gt;
+        City: 
+        &lt;select id=&quot;cityId&quot; name=&quot;cityId&quot;&gt;
+            &lt;option selected=&quot;selected&quot; value=&quot;0&quot;&gt;All cities&lt;/option&gt;
+            &lt;option value=&quot;1&quot;&gt;Adana&lt;/option&gt;
+            &lt;option value=&quot;2&quot;&gt;Ankara&lt;/option&gt;
+            &lt;option value=&quot;3&quot;&gt;Athens&lt;/option&gt;
+            &lt;option value=&quot;4&quot;&gt;Beijing&lt;/option&gt;
+            &lt;option value=&quot;5&quot;&gt;Berlin&lt;/option&gt;
+            &lt;option value=&quot;6&quot;&gt;Bursa&lt;/option&gt;
+            &lt;option value=&quot;7&quot;&gt;İstanbul&lt;/option&gt;
+            &lt;option value=&quot;8&quot;&gt;London&lt;/option&gt;
+            &lt;option value=&quot;9&quot;&gt;Madrid&lt;/option&gt;
+            &lt;option value=&quot;10&quot;&gt;Mekke&lt;/option&gt;
+            &lt;option value=&quot;11&quot;&gt;New York&lt;/option&gt;
+            &lt;option value=&quot;12&quot;&gt;Paris&lt;/option&gt;
+            &lt;option value=&quot;13&quot;&gt;Samsun&lt;/option&gt;
+            &lt;option value=&quot;14&quot;&gt;Trabzon&lt;/option&gt;
+            &lt;option value=&quot;15&quot;&gt;Volos&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;button type=&quot;submit&quot; id=&quot;LoadRecordsButton&quot;&gt;Load records&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;StudentTableContainer&quot;&gt;&lt;/div&gt;</pre>
+<h3>
+    Javascript code</h3>
+<pre class="brush:js; highlight: [11,82,83,84,85,86,87,88,89,91,92]">&lt;script type=&quot;text/javascript&quot;&gt;
+
+    $(document).ready(function () {
+
+        $(&#39;#StudentTableContainer&#39;).jtable({
+            title: &#39;Student List&#39;,
+            paging: true,
+            sorting: true,
+            defaultSorting: &#39;Name ASC&#39;,
+            actions: {
+                listAction: &#39;/Demo/StudentListByFiter&#39;,
+                deleteAction: &#39;/Demo/DeleteStudent&#39;,
+                updateAction: &#39;/Demo/UpdateStudent&#39;,
+                createAction: &#39;/Demo/CreateStudent&#39;
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: &#39;Name&#39;,
+                    width: &#39;23%&#39;
+                },
+                EmailAddress: {
+                    title: &#39;Email address&#39;,
+                    list: false
+                },
+                Password: {
+                    title: &#39;User Password&#39;,
+                    type: &#39;password&#39;,
+                    list: false
+                },
+                Gender: {
+                    title: &#39;Gender&#39;,
+                    width: &#39;13%&#39;,
+                    options: { &#39;M&#39;: &#39;Male&#39;, &#39;F&#39;: &#39;Female&#39; }
+                },
+                CityId: {
+                    title: &#39;City&#39;,
+                    width: &#39;12%&#39;,
+                    options: &#39;/Demo/GetCityOptions&#39;
+                },
+                BirthDate: {
+                    title: &#39;Birth date&#39;,
+                    width: &#39;15%&#39;,
+                    type: &#39;date&#39;,
+                    displayFormat: &#39;yy-mm-dd&#39;
+                },
+                Education: {
+                    title: &#39;Education&#39;,
+                    list: false,
+                    type: &#39;radiobutton&#39;,
+                    options: { &#39;1&#39;: &#39;Primary school&#39;, &#39;2&#39;: &#39;High school&#39;, &#39;3&#39;: &#39;University&#39; }
+                },
+                About: {
+                    title: &#39;About this person&#39;,
+                    type: &#39;textarea&#39;,
+                    list: false
+                },
+                IsActive: {
+                    title: &#39;Status&#39;,
+                    width: &#39;12%&#39;,
+                    type: &#39;checkbox&#39;,
+                    values: { &#39;false&#39;: &#39;Passive&#39;, &#39;true&#39;: &#39;Active&#39; },
+                    defaultValue: &#39;true&#39;
+                },
+                RecordDate: {
+                    title: &#39;Record date&#39;,
+                    width: &#39;15%&#39;,
+                    type: &#39;date&#39;,
+                    displayFormat: &#39;dd.mm.yy&#39;,
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            }
+        });
+
+        //Re-load records when user click &#39;load records&#39; button.
+        $(&#39;#LoadRecordsButton&#39;).click(function (e) {
+            e.preventDefault();
+            $(&#39;#StudentTableContainer&#39;).jtable(&#39;load&#39;, {
+                name: $(&#39;#name&#39;).val(),
+                cityId: $(&#39;#cityId&#39;).val()
+            });
+        });
+
+        //Load all records when page is first shown
+        $(&#39;#LoadRecordsButton&#39;).click();
+    });
+
+&lt;/script&gt;</pre>
+<h3>
+    Server side code</h3>
+<div class="tabsContainer">
+    <ul>
+        <li><a href="Filtering.html#tabs-mvc">ASP.NET MVC</a></li>
+        <li><a href="Filtering.html#tabs-webforms">ASP.NET Web Forms</a></li>
+    </ul>
+    <div id="tabs-mvc">
+        <pre class="brush:csharp;">public class DemoController : Controller
+{
+    //...
+
+    [HttpPost]
+    public JsonResult StudentListByFiter(string name = &quot;&quot;, int cityId = 0, int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
+    {
+        try
+        {
+            //Get data from database
+            var studentCount = _repository.StudentRepository.GetStudentCountByFilter(name, cityId);
+            var students = _repository.StudentRepository.GetStudentsByFilter(name, cityId, jtStartIndex, jtPageSize, jtSorting);
+
+            //Return result to jTable
+            return Json(new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = &quot;ERROR&quot;, Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult CreateStudent(Student student)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            Student addedStudent = _repository.StudentRepository.AddStudent(student);
+            return Json(new { Result = "OK", Record = addedStudent });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult UpdateStudent(Student student)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            _repository.StudentRepository.UpdateStudent(student);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult DeleteStudent(int studentId)
+    {
+        try
+        {
+            _repository.StudentRepository.DeleteStudent(studentId);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult GetCityOptions()
+    {
+        try
+        {
+            var cities = _repository.CityRepository.GetAllCities().Select(c => new { DisplayText = c.CityName, Value = c.CityId });
+            return Json(new { Result = "OK", Options = cities });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+}</pre>
+<p class="code-extra">
+See "<a href="https://www.jtable.org/Tutorials/UsingWithAspNetMvc" target="_blank">Using jTable with ASP.NET MVC</a>" tutorial for detailed usage.<br/>
+Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+</p>
+    </div>
+<div id="tabs-webforms">
+<pre class="brush:csharp">public partial class PagingAndSorting : System.Web.UI.Page
+{
+    //...
+
+    [WebMethod(EnableSession = true)]
+    public static object StudentListByFilter(string name, int cityId, int jtStartIndex, int jtPageSize, string jtSorting)
+    {
+        try
+        {
+            //Get data from database
+            int studentCount = _repository.StudentRepository.GetStudentCountByFilter(name, cityId);
+            List&lt;Student&gt; students = _repository.StudentRepository.GetStudentsByFilter(name, cityId, jtStartIndex, jtPageSize, jtSorting);
+
+            //Return result to jTable
+            return new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object CreateStudent(Student record)
+    {
+        try
+        {
+            var addedStudent = _repository.StudentRepository.AddStudent(record);
+            return new { Result = &quot;OK&quot;, Record = addedStudent };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object UpdateStudent(Student record)
+    {
+        try
+        {
+            _repository.StudentRepository.UpdateStudent(record);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object DeleteStudent(int StudentId)
+    {
+        try
+        {
+            _repository.StudentRepository.DeleteStudent(StudentId);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object GetCityOptions()
+    {
+        try
+        {
+            var cities = _repository.CityRepository.GetAllCities().Select(c =&gt; new { DisplayText = c.CityName, Value = c.CityId });
+            return new { Result = &quot;OK&quot;, Options = cities };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+}</pre>
+<p class="code-extra">
+See "<a href="../Tutorials/UsingWithAspNetWebFormsPageMethods.html" target="_blank">Using jTable with ASP.NET Web Forms</a>" tutorial for detailed usage.<br/>
+Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+</p>
+</div>
+</div>
+
+
+
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables - Paging &amp; Sorting Demo</title>
+
+    <link href="../Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="../Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="../Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="../Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="../Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="../Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+
+    <script src="../Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="../Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="../Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="../index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="../Demo.html">Demos</a> | <a href="../Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="../Themes.html">Themes</a> | <a href="../Home/Downloads.html">Downloads</a> | <a href="../Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="../Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+            <div class="padded-content-container">
+                
+<div id="StudentTableContainer">
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#StudentTableContainer').jtable({
+            title: 'Student List',
+            paging: true,
+            pageSize: 10,
+            sorting: true,
+            multiSorting: true,
+            defaultSorting: 'Name ASC',
+            actions: {
+                listAction: '/Demo/StudentList',
+                deleteAction: '/Demo/DeleteStudent',
+                updateAction: '/Demo/UpdateStudent',
+                createAction: '/Demo/CreateStudent'
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: 'Name',
+                    width: '23%'
+                },
+                EmailAddress: {
+                    title: 'Email address',
+                    list: false
+                },
+                Password: {
+                    title: 'User Password',
+                    type: 'password',
+                    list: false
+                },
+                Gender: {
+                    title: 'Gender',
+                    width: '13%',
+                    options: { 'M': 'Male', 'F': 'Female' }
+                },
+                CityId: {
+                    title: 'City',
+                    width: '12%',
+                    options: '/Demo/GetCityOptions'
+                },
+                BirthDate: {
+                    title: 'Birth date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd'
+                },
+                Education: {
+                    title: 'Education',
+                    list: false,
+                    type: 'radiobutton',
+                    options: { '1': 'Primary school', '2': 'High school', '3': 'University' }
+                },
+                About: {
+                    title: 'About this person',
+                    type: 'textarea',
+                    list: false
+                },
+                IsActive: {
+                    title: 'Status',
+                    width: '12%',
+                    type: 'checkbox',
+                    values: { 'false': 'Passive', 'true': 'Active' },
+                    defaultValue: 'true'
+                },
+                RecordDate: {
+                    title: 'Record date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd',
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            }
+        });
+
+        //Load student list from server
+        $('#StudentTableContainer').jtable('load');
+    });
+
+</script>
+<br />
+<hr />
+<h3>
+    HTML code</h3>
+<pre class="brush:html">&lt;div id=&quot;StudentTableContainer&quot;&gt;&lt;/div&gt;</pre>
+<h3>
+    Javascript code</h3>
+<pre class="brush:js; highlight: [7,8,9,10]">&lt;script type=&quot;text/javascript&quot;&gt;
+
+    $(document).ready(function () {
+
+        $(&#39;#StudentTableContainer&#39;).jtable({
+            title: &#39;The Student List&#39;,
+            paging: true, //Enable paging
+            pageSize: 10, //Set page size (default: 10)
+            sorting: true, //Enable sorting
+            defaultSorting: &#39;Name ASC&#39;, //Set default sorting
+            actions: {
+                listAction: &#39;/Demo/StudentList&#39;,
+                deleteAction: &#39;/Demo/DeleteStudent&#39;,
+                updateAction: &#39;/Demo/UpdateStudent&#39;,
+                createAction: &#39;/Demo/CreateStudent&#39;
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                Name: {
+                    title: &#39;Name&#39;,
+                    width: &#39;23%&#39;
+                },
+                EmailAddress: {
+                    title: &#39;Email address&#39;,
+                    list: false
+                },
+                Password: {
+                    title: &#39;User Password&#39;,
+                    type: &#39;password&#39;,
+                    list: false
+                },
+                Gender: {
+                    title: &#39;Gender&#39;,
+                    width: &#39;13%&#39;,
+                    options: { &#39;M&#39;: &#39;Male&#39;, &#39;F&#39;: &#39;Female&#39; }
+                },
+                CityId: {
+                    title: &#39;City&#39;,
+                    width: &#39;12%&#39;,
+                    options: &#39;/Demo/GetCityOptions&#39;
+                },
+                BirthDate: {
+                    title: &#39;Birth date&#39;,
+                    width: &#39;15%&#39;,
+                    type: &#39;date&#39;,
+                    displayFormat: &#39;yy-mm-dd&#39;
+                },
+                Education: {
+                    title: &#39;Education&#39;,
+                    list: false,
+                    type: &#39;radiobutton&#39;,
+                    options: { &#39;1&#39;: &#39;Primary school&#39;, 
+                               &#39;2&#39;: &#39;High school&#39;, 
+                               &#39;3&#39;: &#39;University&#39; }
+                },
+                About: {
+                    title: &#39;About this person&#39;,
+                    type: &#39;textarea&#39;,
+                    list: false
+                },
+                IsActive: {
+                    title: &#39;Status&#39;,
+                    width: &#39;12%&#39;,
+                    type: &#39;checkbox&#39;,
+                    values: { &#39;false&#39;: &#39;Passive&#39;, &#39;true&#39;: &#39;Active&#39; },
+                    defaultValue: &#39;true&#39;
+                },
+                RecordDate: {
+                    title: &#39;Record date&#39;,
+                    width: &#39;15%&#39;,
+                    type: &#39;date&#39;,
+                    displayFormat: &#39;dd.mm.yy&#39;,
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            }
+        });
+
+        //Load student list from server
+        $(&#39;#StudentTableContainer&#39;).jtable(&#39;load&#39;);
+    });
+
+&lt;/script&gt;</pre>
+<h3>
+    Server side code</h3>
+<div class="tabsContainer">
+    <ul>
+        <li><a href="PagingAndSorting.html#tabs-mvc">ASP.NET MVC</a></li>
+        <li><a href="PagingAndSorting.html#tabs-webforms">ASP.NET Web Forms</a></li>
+    </ul>
+    <div id="tabs-mvc">
+        <pre class="brush:csharp;">public class DemoController : Controller
+{
+    //...
+
+    [HttpPost]
+    public JsonResult StudentList(int jtStartIndex = 0, int jtPageSize = 0, string jtSorting = null)
+    {
+        try
+        {
+            //Get data from database
+            int studentCount = _repository.StudentRepository.GetStudentCount();
+            List&lt;Student&gt; students = _repository.StudentRepository.GetStudents(jtStartIndex, jtPageSize, jtSorting);
+
+            //Return result to jTable
+            return Json(new { Result = "OK", Records = students, TotalRecordCount = studentCount });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult CreateStudent(Student student)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            Student addedStudent = _repository.StudentRepository.AddStudent(student);
+            return Json(new { Result = "OK", Record = addedStudent });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult UpdateStudent(Student student)
+    {
+        try
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(new { Result = "ERROR", Message = "Form is not valid! Please correct it and try again." });
+            }
+
+            _repository.StudentRepository.UpdateStudent(student);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult DeleteStudent(int studentId)
+    {
+        try
+        {
+            _repository.StudentRepository.DeleteStudent(studentId);
+            return Json(new { Result = "OK" });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+
+    [HttpPost]
+    public JsonResult GetCityOptions()
+    {
+        try
+        {
+            var cities = _repository.CityRepository.GetAllCities().Select(c => new { DisplayText = c.CityName, Value = c.CityId });
+            return Json(new { Result = "OK", Options = cities });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { Result = "ERROR", Message = ex.Message });
+        }
+    }
+}</pre>
+<p class="code-extra">
+See "<a href="https://www.jtable.org/Tutorials/UsingWithAspNetMvc" target="_blank">Using jTable with ASP.NET MVC</a>" tutorial for detailed usage.<br/>
+Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+</p>
+    </div>
+<div id="tabs-webforms">
+<pre class="brush:csharp">public partial class PagingAndSorting : System.Web.UI.Page
+{
+    //...
+
+    [WebMethod(EnableSession = true)]
+    public static object StudentList(int jtStartIndex, int jtPageSize, string jtSorting)
+    {
+        try
+        {
+            //Get data from database
+            int studentCount = _repository.StudentRepository.GetStudentCount();
+            List&lt;Student&gt; students = _repository.StudentRepository.GetStudents(jtStartIndex, jtPageSize, jtSorting);
+
+            //Return result to jTable
+            return new { Result = &quot;OK&quot;, Records = students, TotalRecordCount = studentCount };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object CreateStudent(Student record)
+    {
+        try
+        {
+            var addedStudent = _repository.StudentRepository.AddStudent(record);
+            return new { Result = &quot;OK&quot;, Record = addedStudent };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object UpdateStudent(Student record)
+    {
+        try
+        {
+            _repository.StudentRepository.UpdateStudent(record);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object DeleteStudent(int StudentId)
+    {
+        try
+        {
+            _repository.StudentRepository.DeleteStudent(StudentId);
+            return new { Result = &quot;OK&quot; };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+
+    [WebMethod(EnableSession = true)]
+    public static object GetCityOptions()
+    {
+        try
+        {
+            var cities = _repository.CityRepository.GetAllCities().Select(c =&gt; new { DisplayText = c.CityName, Value = c.CityId });
+            return new { Result = &quot;OK&quot;, Options = cities };
+        }
+        catch (Exception ex)
+        {
+            return new { Result = &quot;ERROR&quot;, Message = ex.Message };
+        }
+    }
+}</pre>
+<p class="code-extra">
+See "<a href="../Tutorials/UsingWithAspNetWebFormsPageMethods.html" target="_blank">Using jTable with ASP.NET Web Forms</a>" tutorial for detailed usage.<br/>
+Download all samples from <a href="../Home/Downloads.html" target="_blank">download page</a>.
+</p>
+</div>
+</div>
+
+
+<p>In the server side, we must handle these query string arguments for <strong>paging</strong>:</p>
+<ul>
+  <li><strong>jtStartIndex</strong>: Start index of records for current page.</li>
+  <li><strong>jtPageSize</strong>: Count of maximum expected records.</li>
+</ul>
+<p>Also, we must handle these query string argument for <strong>sorting</strong>:</p>
+<ul>
+  <li><strong>jtSorting</strong>:  A string which represents requested sorting. 
+  It is built from sorting field name plus sorting direction. 
+  For instance, It can be 'Name ASC', 'BirtDate DESC', 'Age ASC'... etc.</li>
+</ul>
+
+<p>You can use such an SQL statement for paging and sorting:</p>
+<pre class="brush:sql">--MySQL
+SELECT * FROM Students ORDER BY Name ASC LIMIT 20,10
+
+--SQL Server
+SELECT * FROM
+    (SELECT ROW_NUMBER() OVER (ORDER BY Name ASC) AS Row, * FROM Students)
+    AS StudentsWithRowNumbers
+WHERE Row &gt; 20 AND Row &lt;= 30</pre>
+<p> In this SQL statement, we are getting 3rd page (if page size is 10).
+We are skipping 20 records (jtStartIndex) and getting 10 records (jtPageSize). Also we used 'Name ASC' for sorting (jtSorting).</p>
+<p>Also, one additional information is expected from server:</p>
+<ul>
+  <li><strong>TotalRecordCount</strong>: Total count of records (not only this page).</li>
+</ul>
+<p>You can use such an SQL statement to get count of all students:</p>
+<pre class="brush:sql">Select Count(*) FROM Students</pre>
+
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="../images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>

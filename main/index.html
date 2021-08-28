@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="keywords" content="jQuery,jQueryUI,ajax,table,grid,crud,plugin">
+    <meta name="description" content="A JQuery plugin to create AJAX based CRUD tables and grids">
+    <meta name="author" content="Halil İbrahim Kalkan">
+
+    <title>jTable.org - A JQuery plugin to create AJAX based CRUD tables</title>
+
+    <link href="Content/h5p/normalize.css" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="Content/Site.metro-v=2.css" rel="stylesheet" type="text/css" />
+
+    <link href="Content/highlight.css" rel="stylesheet" type="text/css" />
+
+        <link href="Content/themes/metroblue/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <link href="Scripts/jtable/themes/metro/blue/jtable.css" rel="stylesheet" type="text/css" />
+
+    <link href="Scripts/syntaxhighligher/styles/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="Scripts/syntaxhighligher/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+    
+    <link href="Scripts/validationEngine/validationEngine.jquery.css" rel="stylesheet" type="text/css" />
+    <style>
+        #QuickImageLinks
+        {
+            text-align: center;
+        }
+        
+        #QuickImageLinks img
+        {
+            border: none;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .child-opener-image
+        {
+            cursor: pointer;
+        }
+
+
+        .child-opener-image
+        {
+            opacity: 0.5;
+        }
+
+        .child-opener-image:hover
+        {
+            opacity: 0.8;
+        }
+
+        
+        .child-opener-image-column
+        {
+            text-align: center;
+        }
+        
+        .jtable-dialog-form
+        {
+            min-width: 220px;
+        }
+        
+        .jtable-dialog-form input[type="text"]
+        {
+            min-width: 200px;
+        }
+    </style>
+
+
+    <script src="Scripts/modernizr-2.6.2.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.10.0.min.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shCore.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushJScript.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushXml.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushSql.js" type="text/javascript"></script>
+    <script src="Scripts/syntaxhighligher/shBrushPhp.js" type="text/javascript"></script>
+    <script src="Scripts/jtablesite.js" type="text/javascript"></script>
+    <script type="text/javascript" src="Scripts/jtable/jquery.jtable.js"></script>
+    
+
+    
+    <script type="text/javascript" src="Scripts/validationEngine/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="Scripts/validationEngine/jquery.validationEngine-en.js"></script>
+
+
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-22169554-3']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    </script>
+</head>
+<body>
+    <div class="site-container">
+        <div class="main-header" style="position: relative">
+            <h1><a href="index.html">jTable<span class="light">.org</span></a></h1>
+            <h2>A JQuery plugin to create AJAX based CRUD tables.</h2>
+            <div style="float: right; position: absolute; right: 8px; bottom: 8px;">
+                <a href="https://twitter.com/jqueryjtable" class="twitter-follow-button" data-show-count="false"
+                    data-size="large">Follow @jqueryjtable</a>
+                <script>                    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+            </div>
+        </div>
+        <div class="top-navigation" style="position: relative">
+            <div>
+                <a href="Demo.html">Demos</a> | <a href="Home/Documents.html">Documentation</a> | <a href="https://github.com/hikalkan/jtable/issues?state=open">Discussion</a> | <a href="Themes.html">Themes</a> | <a href="Home/Downloads.html">Downloads</a> | <a href="Home/About.html">About</a>
+            </div>
+            <div style="position: absolute; right: 3px; top: 3px;">
+                <a href="https://github.com/hikalkan/jtable" style="color: #666;" target="_blank"><span>jTable on GitHub </span>
+                    <img width="16" height="16" style="border: none" src="Content/images/github.png" alt="Github" /></a>
+            </div>
+        </div>
+        <div class="content-container">
+            
+<div id="StudentTableContainer">
+</div>
+
+            <div class="padded-content-container">
+                
+
+
+
+
+<div style="height: 30px;">
+    <div style="float: right;">
+        <span>Change theme:</span>
+        <select id="ThemeCombobox" style="margin: 0px; margin: 5px 0px 0px 0px;">
+            <option value="jqueryui-flick">jQueryUI theme (flick)</option>
+            <option value="jqueryui-redmond">jQueryUI theme (redmod)</option>
+            <option value="jqueryui-sunny">jQueryUI theme (sunny)</option>
+            <option value="jqueryui-trontastic">jQueryUI theme (trontastic)</option>
+            <option value="jqueryui-ui-darkness">jQueryUI theme (ui-darkness)</option>
+            <option value="lightcolor/blue/jtable.css">Light - Blue</option>
+            <option value="lightcolor/gray/jtable.css">Light - Gray</option>
+            <option value="lightcolor/green/jtable.css">Light - Green</option>
+            <option value="lightcolor/orange/jtable.css">Light - Orange</option>
+            <option value="lightcolor/red/jtable.css">Light - Red</option>
+            <option value="metro/blue/jtable.css">Metro Style - Blue</option>
+            <option value="metro/brown/jtable.css">Metro Style - Brown</option>
+            <option value="metro/crimson/jtable.css">Metro Style - Crimson</option>
+            <option value="metro/darkgray/jtable.css">Metro Style - Dark Gray</option>
+            <option value="metro/darkorange/jtable.css">Metro Style - Dark Orange</option>
+            <option value="metro/green/jtable.css">Metro Style - Green</option>
+            <option value="metro/lightgray/jtable.css">Metro Style - Light Gray</option>
+            <option value="metro/pink/jtable.css">Metro Style - Pink</option>
+            <option value="metro/purple/jtable.css">Metro Style - Purple</option>
+            <option value="metro/red/jtable.css">Metro Style - Red</option>
+        </select>
+    </div>
+    <div style="float: left; text-align: left; font-style: italic; margin: 5px 0px 0px 0px;">
+        A quick demonstration of jTable.
+    </div>
+</div>
+<h2>What's New</h2>
+<ul>
+    <li><span class="news-date"><strong>08.03.2014</strong></span>: jTable <b>v2.4.0</b> - Support for <strong>setting functions as actions</strong>. Also localizations and bugfixes.</li>
+</ul>
+<p>
+    See all <a href="Home/ChangeLog.html">change logs</a>.
+</p>
+<h2>What is jTable</h2>
+<p>
+    <strong>jTable </strong>is a <strong>jQuery </strong>plugin that is used to create
+    <strong>AJAX</strong> based <strong>CRUD</strong> tables <strong>without coding</strong>
+    HTML or Javascript. It has several features including:
+</p>
+<ul>
+    <li>Automatically creates HTML <strong>table </strong>and <strong>loads </strong>records
+        from server using AJAX.</li>
+    <li>Creates '<strong>create </strong>new record' jQueryUI <strong>dialog form</strong>.
+        When user creates a record, it sends data to server using AJAX and adds the same
+        record to the table in the page.</li>
+    <li>Creates '<strong>edit </strong>record' jQueryUI <strong>dialog form</strong>. When
+        user edits a record, it updates server using AJAX and updates all cells on the table
+        in the page.</li>
+    <li>Allow user to '<strong>delete </strong>a record' by jQueryUI dialog based confirmation.
+        When user deletes a record, it deletes the record from server using AJAX and deletes
+        the record from the table in the page.</li>
+    <li>Shows <strong>animations </strong>for <strong>create/delete/edit </strong>operations
+        on the table.</li>
+    <li>Supports <strong>server side paging</strong> using AJAX.</li>
+    <li>Supports <strong>server side sorting</strong> using AJAX.</li>
+    <li>Supports <strong>master/child tables</strong>.</li>
+    <li>Allows user to <strong>select rows</strong>.</li>
+    <li>Allows user to <strong>resize columns</strong>.</li>
+    <li>Allows user to <strong>show/hide columns</strong>.</li>
+    <li>Exposes some events to enable <strong>validation</strong> with forms.</li>
+    <li>It <strong>can be localized</strong><strong> </strong>easily.</li>
+    <li>All <strong>styling </strong>of table and forms are defined in a <strong>CSS </strong>
+        file, so you can easily change style of everything to use plugin in your pages.
+        CSS file is well defined and commented.</li>
+    <li>It comes with <strong>pre-defined color themes</strong>.</li>
+    <li>It is <strong>not depended </strong>
+        on any server side technology.
+    <li>It is <strong>platform independed </strong>and works on all common browsers.</li>
+</ul>
+<ul id="QuickLinks">
+    <li class="seedemos"><a href="Demo-ref=homebuttons.html"><h2>See Demos</h2></a><img src="Content/images/Home/seedemos.png" alt="See jTable demos" width="48" height="48"/></li><li class="second"><a href="Home/Downloads-ref=homebuttons.html"><h2>Download jTable</h2></a><img src="Content/images/Home/download.png" alt="Download jTable" width="32" height="32"/></li><li class="third"><a href="GettingStarted-ref=homebuttons.html"><h2>Getting Started</h2></a><img src="Content/images/Home/gettingstarted.png" alt="Getting started with jTable" width="48" height="48"/></li>
+</ul>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $('#StudentTableContainer').jtable({
+            title: 'Student List',
+            paging: true, //Enable paging
+            sorting: true, //Enable sorting
+            columnResizable: false, //Disable column resizing
+            columnSelectable: false, //Disable column selecting
+            defaultSorting: 'Name ASC',
+            openChildAsAccordion: true,
+            actions: {
+                listAction: '/Demo/StudentList',
+                deleteAction: '/Demo/DeleteStudent',
+                updateAction: '/Demo/UpdateStudent',
+                createAction: '/Demo/CreateStudent'
+            },
+            toolbar: {
+                items: [{
+                    tooltip: 'Click here to export this table to excel',
+                    icon: '/Content/images/Misc/excel.png',
+                    text: 'Export to Excel',
+                    click: function () {
+                        alert('This item is just a demonstration for new toolbar feature. You can add your custom toolbar items here. Then, for example, you can download excel file from server when user clicks this item. See toolbar in API reference documentation for usage.');
+                    }
+                }]
+            },
+            fields: {
+                StudentId: {
+                    key: true,
+                    create: false,
+                    edit: false,
+                    list: false
+                },
+                //CHILD TABLE DEFINITION FOR "PHONE NUMBERS"
+                Phones: {
+                    title: '',
+                    width: '5%',
+                    sorting: false,
+                    edit: false,
+                    create: false,
+                    listClass: 'child-opener-image-column',
+                    display: function (studentData) {
+                        //Create an image that will be used to open child table
+                        var $img = $('<img class="child-opener-image" src="/Content/images/Misc/phone_metro.png" title="Edit phone numbers" />');
+                        //Open child table when user clicks the image
+                        $img.click(function () {
+                            $('#StudentTableContainer').jtable('openChildTable',
+                                    $img.closest('tr'),
+                                    {
+                                        title: studentData.record.Name + ' - Phone numbers',
+                                        actions: {
+                                            listAction: '/Demo/PhoneList?StudentId=' + studentData.record.StudentId,
+                                            deleteAction: '/Demo/DeletePhone',
+                                            updateAction: '/Demo/UpdatePhone',
+                                            createAction: '/Demo/CreatePhone?StudentId=' + studentData.record.StudentId
+                                        },
+                                        fields: {
+                                            PhoneId: {
+                                                key: true,
+                                                create: false,
+                                                edit: false,
+                                                list: false
+                                            },
+                                            PhoneType: {
+                                                title: 'Phone type',
+                                                width: '30%',
+                                                options: { '1': 'Home phone', '2': 'Office phone', '3': 'Cell phone' }
+                                            },
+                                            Number: {
+                                                title: 'Phone Number',
+                                                width: '30%',
+                                                inputClass: 'validate[required]'
+                                            },
+                                            RecordDate: {
+                                                title: 'Record date',
+                                                width: '20%',
+                                                type: 'date',
+                                                displayFormat: 'yy-mm-dd',
+                                                create: false,
+                                                edit: false
+                                            }
+                                        },
+                                        formCreated: function (event, data) {
+                                            data.form.validationEngine();
+                                        },
+                                        formSubmitting: function (event, data) {
+                                            return data.form.validationEngine('validate');
+                                        },
+                                        formClosed: function (event, data) {
+                                            data.form.validationEngine('hide');
+                                            data.form.validationEngine('detach');
+                                        }
+                                    }, function (data) { //opened handler
+                                        data.childTable.jtable('load');
+                                    });
+                        });
+                        //Return image to show on the person row
+                        return $img;
+                    }
+                },
+                //CHILD TABLE DEFINITION FOR "EXAMS"
+                Exams: {
+                    title: '',
+                    width: '5%',
+                    sorting: false,
+                    edit: false,
+                    create: false,
+                    listClass: 'child-opener-image-column',
+                    display: function (studentData) {
+                        //Create an image that will be used to open child table
+                        var $img = $('<img class="child-opener-image" src="/Content/images/Misc/list_metro.png" title="Edit exam results" />');
+                        //Open child table when user clicks the image
+                        $img.click(function () {
+                            $('#StudentTableContainer').jtable('openChildTable',
+                                    $img.closest('tr'), //Parent row
+                                    {
+                                        title: studentData.record.Name + ' - Exam Results',
+                                        actions: {
+                                            listAction: '/Demo/ExamList?StudentId=' + studentData.record.StudentId,
+                                            deleteAction: '/Demo/DeleteExam',
+                                            updateAction: '/Demo/UpdateExam',
+                                            createAction: '/Demo/CreateExam?StudentId=' + studentData.record.StudentId
+                                        },
+                                        fields: {
+                                            StudentExamId: {
+                                                key: true,
+                                                create: false,
+                                                edit: false,
+                                                list: false
+                                            },
+                                            CourseName: {
+                                                title: 'Course name',
+                                                width: '40%',
+                                                inputClass: 'validate[required]'
+                                            },
+                                            ExamDate: {
+                                                title: 'Exam date',
+                                                width: '30%',
+                                                type: 'date',
+                                                displayFormat: 'yy-mm-dd',
+                                                inputClass: 'validate[required,custom[date]]'
+                                            },
+                                            Degree: {
+                                                title: 'Degree',
+                                                width: '10%',
+                                                options: ["AA", "BA", "BB", "CB", "CC", "DC", "DD", "FF"]
+                                            }
+                                        },
+                                        formCreated: function (event, data) {
+                                            data.form.validationEngine();
+                                        },
+                                        formSubmitting: function (event, data) {
+                                            return data.form.validationEngine('validate');
+                                        },
+                                        formClosed: function (event, data) {
+                                            data.form.validationEngine('hide');
+                                            data.form.validationEngine('detach');
+                                        }
+                                    }, function (data) { //opened handler
+                                        data.childTable.jtable('load');
+                                    });
+                        });
+                        //Return image to show on the person row
+                        return $img;
+                    }
+                },
+                Name: {
+                    title: 'Name',
+                    width: '20%',
+                    inputClass: 'validate[required]'
+                },
+                EmailAddress: {
+                    title: 'Email address',
+                    list: false,
+                    inputClass: 'validate[required,custom[email]]'
+                },
+                Password: {
+                    title: 'User Password',
+                    type: 'password',
+                    list: false,
+                    inputClass: 'validate[required]'
+                },
+                Gender: {
+                    title: 'Gender',
+                    width: '11%',
+                    list: false,
+                    options: { 'M': 'Male', 'F': 'Female' }
+                },
+                CountryId: {
+                    title: 'Country',
+                    options: '/Demo/GetCountryOptions',
+                    list: false
+                },
+                CityId: {
+                    title: 'City',
+                    width: '12%',
+                    dependsOn: 'CountryId', //Cities depends on countries. Thus, jTable builds cascade dropdowns in create/edit form!
+                    options: function (data) {
+                        if (data.source == 'list') {
+                            //Return url of all cities for optimization. 
+                            //Since this method is called for each row on the table and jTable caches options based on this url.
+                            return '/Demo/GetCityOptions?countryId=0';
+                        }
+
+                        //This code runs when user opens edit/create forms or changes country combobox on an edit/create form.
+                        //data.source == 'edit' || data.source == 'create'
+                        return '/Demo/GetCityOptions?countryId=' + data.dependedValues.CountryId;
+                    }
+                },
+                BirthDate: {
+                    title: 'Birth date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd',
+                    inputClass: 'validate[required,custom[date]]'
+                },
+                Education: {
+                    title: 'Education',
+                    list: false,
+                    type: 'radiobutton',
+                    options: { '1': 'Primary school', '2': 'High school', '3': 'University' },
+                    inputClass: 'validate[required]'
+                },
+                About: {
+                    title: 'About this person',
+                    type: 'textarea',
+                    list: false
+                },
+                IsActive: {
+                    title: 'Status',
+                    width: '12%',
+                    type: 'checkbox',
+                    values: { 'false': 'Passive', 'true': 'Active' },
+                    defaultValue: 'true'
+                },
+                RecordDate: {
+                    title: 'Record date',
+                    width: '15%',
+                    type: 'date',
+                    displayFormat: 'yy-mm-dd',
+                    create: false,
+                    edit: false,
+                    sorting: false //This column is not sortable!
+                }
+            },
+            formCreated: function (event, data) {
+                data.form.validationEngine();
+            },
+            formSubmitting: function (event, data) {
+                return data.form.validationEngine('validate');
+            },
+            formClosed: function (event, data) {
+                data.form.validationEngine('hide');
+                data.form.validationEngine('detach');
+            }
+        });
+
+        //Load person list from server
+        $('#StudentTableContainer').jtable('load');
+
+        //Select current theme on combobox
+        $('#ThemeCombobox').val('metro/blue/jtable.css');
+
+        //Change theme when chaned combobox
+        $('#ThemeCombobox').change(function () {
+            location.href = '/?jTableStyle=' + $('#ThemeCombobox').val();
+        });
+    });
+
+</script>
+
+            </div>
+            
+            <div class="aspnet-zero-promotion-bottom">
+                <div>                    
+                    <p class="lead"><u>Advertisement</u>: Professional startup template for ASP.NET MVC &amp; AngularJs by creator of jTable!</p>
+                    <p><a href="http://www.aspnetzero.com/?ref=jtable" target="_blank"><img src="images/aspnetzero/screenshot-small.png" alt="ASP.NET Zero screenshot" /></a> Based on metronic theme, includes pre-built pages like login, register, tenant, role, user, permission and setting management. <a href="http://www.aspnetzero.com/?ref=jtable" target="_blank">Learn more...</a></p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main-footer" style="position: relative">
+            Designed and developed by <a href="http://www.halilibrahimkalkan.com">Halil İbrahim
+                Kalkan</a> © 2011 - 2021
+        </div>
+    </div>
+    <div id="AdsContainer" class="ads-container">
+        
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- Standard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:120px;height:600px"
+             data-ad-client="ca-pub-1219224739916003"
+             data-ad-slot="3036160032"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        
+        var $adsContainer = $('#AdsContainer');
+
+        var showHideAds = function () {
+            if ($(window).width() < 1070) {
+                if ($adsContainer.is(':visible')) {
+                    $adsContainer.hide();
+                }
+            } else {
+                if (!$adsContainer.is(':visible')) {
+                    $adsContainer.show();
+                }
+            }
+        };
+        showHideAds();
+
+        $(window).resize(function () {
+            showHideAds();
+        });
+    });
+
+</script>
